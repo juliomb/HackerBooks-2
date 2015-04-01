@@ -72,7 +72,7 @@
         }
     }
     
-    // Ordenamos albéticamente
+    // Ordenamos alfabéticamente
     NSArray *sortedArray = [tags sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
     return sortedArray;
@@ -109,7 +109,10 @@
     
     // si no hay ninguno devolvemos nil
     if ([books count] > 0){
+        
+        // Deben estar ordenados ya
         return books;
+        
     }else{
         return nil;
     }
@@ -129,8 +132,6 @@
         // devolvemos el libro
         return [books objectAtIndex:index];
     }
-    
-    
     
 }
 

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "TSOLibrary.h"
 #import "TSOBook.h"
+#import "Settings.h"
+#import "TSODownloadController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +20,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // Si es la primera ejecución, descargamos en JSON y lo guardamos como NSData
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:FIRST_EJECUTION]; // OJO!!!!
+    if (![userDefaults objectForKey:FIRST_EJECUTION]){
+        
+        // ponemos un valor por defecto
+        [userDefaults setObject:@1 forKey:FIRST_EJECUTION];
+        
+        // le pasamos la tarea al controlador de descargas
+        TSODownloadController *dC = [[TSODownloadController alloc] init];
+        NSURL *url = [NSURL URLWithString:JSON_URL];
+        [dC downloadAndSaveJSONWithURL:url];
+        
+        // por si acaso
+        [userDefaults synchronize];
+    }
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -46,11 +66,11 @@
 //    TSOBook *book4 = [library bookForTag:@"python" atIndex:2];
 //    
 //    NSLog(@"%@ %@ %@ %@", book, book2, book3, book4);
-    
-    NSArray *tags = [library tags];
-    for (id tag in tags){
-        NSLog(@"%@  ", tag);
-    }
+//    
+//    NSArray *tags = [library tags];
+//    for (id tag in tags){
+//        NSLog(@"%@  ", tag);
+//    }
     
     
     [self.window makeKeyAndVisible];
