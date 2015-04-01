@@ -12,6 +12,8 @@
 		8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E7774061ACB194100B87AE9 /* Images.xcassets */; };
 		8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7774081ACB194100B87AE9 /* LaunchScreen.xib */; };
 		8E7774161ACB194100B87AE9 /* HackerBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774151ACB194100B87AE9 /* HackerBooksTests.m */; };
+		8E7774211ACB19A700B87AE9 /* TSOBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774201ACB19A700B87AE9 /* TSOBook.m */; };
+		8E7774251ACB19ED00B87AE9 /* TSOLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774241ACB19ED00B87AE9 /* TSOLibrary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,10 @@
 		8E77740F1ACB194100B87AE9 /* HackerBooksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerBooksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7774141ACB194100B87AE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E7774151ACB194100B87AE9 /* HackerBooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackerBooksTests.m; sourceTree = "<group>"; };
+		8E77741F1ACB19A700B87AE9 /* TSOBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOBook.h; sourceTree = "<group>"; };
+		8E7774201ACB19A700B87AE9 /* TSOBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOBook.m; sourceTree = "<group>"; };
+		8E7774231ACB19ED00B87AE9 /* TSOLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOLibrary.h; sourceTree = "<group>"; };
+		8E7774241ACB19ED00B87AE9 /* TSOLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOLibrary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		8E7773FE1ACB194100B87AE9 /* HackerBooks */ = {
 			isa = PBXGroup;
 			children = (
+				8E7774221ACB19B100B87AE9 /* Models */,
 				8E7774031ACB194100B87AE9 /* AppDelegate.h */,
 				8E7774041ACB194100B87AE9 /* AppDelegate.m */,
 				8E7774061ACB194100B87AE9 /* Images.xcassets */,
@@ -109,6 +116,17 @@
 				8E7774141ACB194100B87AE9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8E7774221ACB19B100B87AE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E77741F1ACB19A700B87AE9 /* TSOBook.h */,
+				8E7774201ACB19A700B87AE9 /* TSOBook.m */,
+				8E7774231ACB19ED00B87AE9 /* TSOLibrary.h */,
+				8E7774241ACB19ED00B87AE9 /* TSOLibrary.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7774051ACB194100B87AE9 /* AppDelegate.m in Sources */,
+				8E7774211ACB19A700B87AE9 /* TSOBook.m in Sources */,
+				8E7774251ACB19ED00B87AE9 /* TSOLibrary.m in Sources */,
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

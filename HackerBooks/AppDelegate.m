@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "TSOLibrary.h"
+#import "TSOBook.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +21,33 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    // pruebas
+    TSOLibrary *library = [[TSOLibrary alloc] init];
+
+//    NSLog(@"%d", [library bookCountForTag:@"python"]);
+//    NSLog(@"%d", [library bookCountForTag:@"pythona"]);
+//    
+//    NSArray *books = [library booksForTag:@"python"];
+//    NSArray *books2 = [library booksForTag:@"aaa"];
+//    
+//    for (id book in books){
+//        NSLog(@"%@", book);
+//    }
+//    
+//    for (id book in books2){
+//        NSLog(@"%@", book);
+//    }
+//
+//    TSOBook *book = [library bookForTag:@"algo2" atIndex:0];
+//    TSOBook *book2 = [library bookForTag:@"python" atIndex:0];
+//    TSOBook *book3 = [library bookForTag:@"python" atIndex:1];
+//    TSOBook *book4 = [library bookForTag:@"python" atIndex:2];
+//    
+//    NSLog(@"%@ %@ %@ %@", book, book2, book3, book4);
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
