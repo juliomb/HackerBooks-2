@@ -23,4 +23,6 @@
          urlToImage:(NSURL *) urlToImage
            urlToPDF:(NSURL *) urlToPDF;
 
+-(id) initWithDictionary:(NSDictionary *) dictionary;
+
 @end

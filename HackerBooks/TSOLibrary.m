@@ -25,6 +25,8 @@
     return [self.booksArray count];
 }
 
+
+# pragma mark - Designeds
 -(id) init{
     
     if (self = [super init]) {
@@ -54,6 +56,19 @@
     return self;
     
 }
+
+
+-(id) initWithArray:(NSArray *) dictArray{
+    if (self = [super init]){
+        _booksArray = [self booksFromDictionaryArray:dictArray];
+        NSLog(@"%@", _booksArray);
+    }
+    return self;
+}
+
+
+
+#pragma mark - Utils
 
 
 -(NSArray *) tags{
@@ -132,6 +147,21 @@
         // devolvemos el libro
         return [books objectAtIndex:index];
     }
+    
+}
+
+-(NSArray *) booksFromDictionaryArray:(NSArray *) dictArray{
+    
+    // Recorremos el array y vamos añadiendo los libros
+    NSMutableArray *books = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *dict in dictArray) {
+        TSOBook *book = [[TSOBook alloc] initWithDictionary:dict];
+        [books addObject:book];
+    }
+    
+    // ordenamos y devolvemos
+    return books;
     
 }
 

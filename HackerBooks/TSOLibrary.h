@@ -12,6 +12,8 @@
 
 @interface TSOLibrary : NSObject
 
+-(id) initWithArray:(NSArray *) dictArray;
+
 
 -(NSUInteger) booksCount;
 

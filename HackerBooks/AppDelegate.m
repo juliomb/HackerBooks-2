@@ -23,6 +23,8 @@
     
     // Si es la primera ejecución, descargamos en JSON y lo guardamos como NSData
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    TSODownloadController *dC = [[TSODownloadController alloc] init];
+    
     [userDefaults removeObjectForKey:FIRST_EJECUTION]; // OJO!!!!
     if (![userDefaults objectForKey:FIRST_EJECUTION]){
         
@@ -30,7 +32,6 @@
         [userDefaults setObject:@1 forKey:FIRST_EJECUTION];
         
         // le pasamos la tarea al controlador de descargas
-        TSODownloadController *dC = [[TSODownloadController alloc] init];
         NSURL *url = [NSURL URLWithString:JSON_URL];
         [dC downloadAndSaveJSONWithURL:url];
         
@@ -42,9 +43,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    // Cogemos los datos de local e inicializamos la librería
+    NSArray *dictArray = [dC booksDictionaryArray];
     
     // pruebas
-    TSOLibrary *library = [[TSOLibrary alloc] init];
+    TSOLibrary *library = [[TSOLibrary alloc] initWithArray:dictArray];
 
 //    NSLog(@"%d", [library bookCountForTag:@"python"]);
 //    NSLog(@"%d", [library bookCountForTag:@"pythona"]);

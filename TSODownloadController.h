@@ -11,5 +11,6 @@
 @interface TSODownloadController : NSObject
 
 -(void) downloadAndSaveJSONWithURL:(NSURL *) url;
+-(NSArray *) booksDictionaryArray;
 
 @end

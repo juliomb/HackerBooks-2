@@ -30,6 +30,19 @@
 }
 
 
+-(id) initWithDictionary:(NSDictionary *) dictionary{
+    
+    NSURL *imageURL = [NSURL URLWithString:[dictionary objectForKey:@"image_url"]];
+    NSURL *pdfURL = [NSURL URLWithString:[dictionary objectForKey:@"pdf_url"]];
+    
+    return [self initWithTitle:[dictionary objectForKey:@"title"]
+                       authors:@[[dictionary objectForKey:@"authors"]] // OJOOOO!!
+                          tags:@[[dictionary objectForKey:@"tags"]] // OJOOOOO!!
+                    urlToImage:imageURL
+                      urlToPDF:pdfURL];
+}
+
+
 -(NSString *) description{
     
     return [NSString stringWithFormat:@"<%@: %@>",

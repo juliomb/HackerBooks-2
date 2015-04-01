@@ -7,6 +7,7 @@
 //
 
 #import "TSODownloadController.h"
+#import "Settings.h"
 
 @implementation TSODownloadController
 
@@ -16,10 +17,52 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     
     if (data != nil) {
-        NSLog(@"Datos descargados correctamente");
+        
+        // Datos descargados correctamente, los guardamos en la SandBox
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+        NSURL *url = [urls lastObject];
+        url = [url URLByAppendingPathComponent:NSDATA_LIBRARY];
+        NSError *error =nil;
+        BOOL aux = [data writeToURL:url
+                            options:NSDataWritingAtomic
+                              error:&error];
+        
+        // comprobamos la escritura
+        if (aux){
+            NSLog(@"Datos almacenados correctamente");
+        }else{
+            NSLog(@"Error al escribir los datos: %@", error.userInfo);
+        }
+
     }else{
         NSLog(@"Error descargando los datos");
     }
+    
+}
+
+
+-(NSArray *) booksDictionaryArray{
+    
+    // Leemos el NSData
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *url = [urls lastObject];
+    url = [url URLByAppendingPathComponent:NSDATA_LIBRARY];
+    NSError *error =nil;
+    NSData *data = [NSData dataWithContentsOfURL:url
+                                         options:NSDataReadingMappedIfSafe
+                                           error:&error];
+    
+    // devolvemos un array de diccionarios
+    NSArray *dictArray = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:kNilOptions
+                                                           error:&error];
+    if (dictArray == nil){
+        NSLog(@"Error al parsear el JSON: %@", error.userInfo);
+    }
+    
+    return dictArray;
     
 }
 
