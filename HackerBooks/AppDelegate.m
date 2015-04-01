@@ -47,6 +47,11 @@
 //    
 //    NSLog(@"%@ %@ %@ %@", book, book2, book3, book4);
     
+    NSArray *tags = [library tags];
+    for (id tag in tags){
+        NSLog(@"%@  ", tag);
+    }
+    
     
     [self.window makeKeyAndVisible];
     return YES;

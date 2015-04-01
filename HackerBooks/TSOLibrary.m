@@ -56,9 +56,27 @@
 }
 
 
-//-(NSArray *) tags{
-////    return self;
-//}
+-(NSArray *) tags{
+    
+    // Creamos un array mutable para ir metiendo los tags
+    NSMutableArray *tags = [[NSMutableArray alloc] init];
+    
+    for (TSOBook *book in self.booksArray){
+        for (NSString *tag in book.tags){
+            
+            // añadimos si no está
+            if (![tags containsObject:tag]) {
+                [tags addObject:tag];
+            }
+            
+        }
+    }
+    
+    // Ordenamos albéticamente
+    NSArray *sortedArray = [tags sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    return sortedArray;
+}
 
 
 -(NSUInteger) bookCountForTag:(NSString *) tag{
