@@ -18,19 +18,49 @@
     
     if (data != nil) {
         
-        // Datos descargados correctamente, los guardamos en la SandBox
+        // Datos descargados correctamente
+        // Sacamos los diccionarios
+        NSError *error =nil;
+        NSArray *dictArray = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:kNilOptions
+                                                               error:&error];
+        if (dictArray == nil){
+            NSLog(@"Error al parsear el JSON: %@", error.userInfo);
+        }
+        
+        // Descargamos, guardamos las imágenes y actualizamos el diccionario
+        NSMutableArray *arrayWithLocalImages = [[NSMutableArray alloc] init];
+        for (NSDictionary *dict in dictArray){
+            NSDictionary *dictWithImage = [self downloadAndSaveImageWithDictionary:dict];
+            [arrayWithLocalImages addObject:dictWithImage];
+        }
+            
+        // Ordenamos los libros alfabéticamente
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+        NSArray *descriptors = [NSArray arrayWithObject:descriptor];
+        NSArray *sortedArray = [arrayWithLocalImages sortedArrayUsingDescriptors:descriptors];
+        
+        // Generamos el NSData con las modificaciones
+        NSData *newData = [NSJSONSerialization dataWithJSONObject:sortedArray
+                                                          options:kNilOptions
+                                                            error:&error];
+        if (newData == nil) {
+            NSLog(@"Error generando el NSData");
+        }
+            
+        // Escribimos en la sandbox
         NSFileManager *fm = [NSFileManager defaultManager];
         NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
         NSURL *url = [urls lastObject];
         url = [url URLByAppendingPathComponent:NSDATA_LIBRARY];
-        NSError *error =nil;
-        BOOL aux = [data writeToURL:url
+        BOOL aux = [newData writeToURL:url
                             options:NSDataWritingAtomic
                               error:&error];
         
-        // comprobamos la escritura
+        // Comprobamos la escritura
         if (aux){
             NSLog(@"Datos almacenados correctamente");
+            
         }else{
             NSLog(@"Error al escribir los datos: %@", error.userInfo);
         }
@@ -64,6 +94,12 @@
     
     return dictArray;
     
+}
+
+-(NSDictionary *) downloadAndSaveImageWithDictionary:(NSDictionary *) dict{
+    NSMutableDictionary *mutable = [NSMutableDictionary dictionaryWithDictionary:dict];
+    [mutable setValue:@"modificada" forKey:@"image_url"];
+    return mutable;
 }
 
 @end

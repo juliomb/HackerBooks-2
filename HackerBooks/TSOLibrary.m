@@ -160,7 +160,7 @@
         [books addObject:book];
     }
     
-    // ordenamos y devolvemos
+    // devolvemos, ya deben estar ordenados
     return books;
     
 }
