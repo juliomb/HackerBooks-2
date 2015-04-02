@@ -35,9 +35,15 @@
     NSURL *imageURL = [NSURL URLWithString:[dictionary objectForKey:@"image_url"]];
     NSURL *pdfURL = [NSURL URLWithString:[dictionary objectForKey:@"pdf_url"]];
     
+    // Convertimos los tags y los autores en arrays
+    NSString *authorsString = [dictionary objectForKey:@"authors"];
+    NSArray *authorsArray = [authorsString componentsSeparatedByString:@", "];
+    NSString *tagsString = [dictionary objectForKey:@"tags"];
+    NSArray *tagsArray = [tagsString componentsSeparatedByString:@", "];
+    
     return [self initWithTitle:[dictionary objectForKey:@"title"]
-                       authors:@[[dictionary objectForKey:@"authors"]] // OJOOOO!!
-                          tags:@[[dictionary objectForKey:@"tags"]] // OJOOOOO!!
+                       authors:authorsArray
+                          tags:tagsArray
                     urlToImage:imageURL
                       urlToPDF:pdfURL];
 }

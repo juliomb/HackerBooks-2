@@ -97,9 +97,29 @@
 }
 
 -(NSDictionary *) downloadAndSaveImageWithDictionary:(NSDictionary *) dict{
+    // descargamos la imagen
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dict objectForKey:@"image_url"]]];
+    
+    // la guardamos en la carpeta documents
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *url = [urls lastObject];
+    url = [url URLByAppendingPathComponent:[IMAGE_PREFIX stringByAppendingString:[dict objectForKey:@"title"]]];
+    NSError *error = nil;
+    BOOL aux = [imageData writeToURL:url
+                           options:NSDataWritingAtomic
+                             error:&error];
+    // Comprobamos la escritura
+    if (!aux){
+        NSLog(@"Error al guardar imagen: %@", error.userInfo);
+        
+    }
+    
+    // modificamos la url
     NSMutableDictionary *mutable = [NSMutableDictionary dictionaryWithDictionary:dict];
-    [mutable setValue:@"modificada" forKey:@"image_url"];
+    [mutable setValue:[url lastPathComponent] forKey:@"image_url"];
     return mutable;
+
 }
 
 @end

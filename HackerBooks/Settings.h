@@ -9,3 +9,5 @@
 #define FIRST_EJECUTION @"firstEjecution"
 #define JSON_URL @"https://t.co/K9ziV0z3SJ"
 #define NSDATA_LIBRARY @"NSDataLibrary"
+#define IMAGE_PREFIX @"image_"
+#define PDF_PREFIX @"pdf_"

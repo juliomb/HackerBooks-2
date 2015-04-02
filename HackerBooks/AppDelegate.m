@@ -11,6 +11,7 @@
 #import "TSOBook.h"
 #import "Settings.h"
 #import "TSODownloadController.h"
+#import "TSOBookViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +26,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     TSODownloadController *dC = [[TSODownloadController alloc] init];
     
-    [userDefaults removeObjectForKey:FIRST_EJECUTION]; // OJO!!!!
+    //[userDefaults removeObjectForKey:FIRST_EJECUTION]; // OJO!!!!
     if (![userDefaults objectForKey:FIRST_EJECUTION]){
         
         // ponemos un valor por defecto
@@ -75,7 +76,10 @@
 //        NSLog(@"%@  ", tag);
 //    }
     
+    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:[library bookForTag:@"python" atIndex:1]];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:bookVC];
     
+    self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E5D74F21ACD504E006F5564 /* TSOBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D74F01ACD504E006F5564 /* TSOBookViewController.m */; };
+		8E5D74F31ACD504E006F5564 /* TSOBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5D74F11ACD504E006F5564 /* TSOBookViewController.xib */; };
+		8E5D75051ACD5D64006F5564 /* TSOSimplePDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D75031ACD5D64006F5564 /* TSOSimplePDFViewController.m */; };
+		8E5D75061ACD5D64006F5564 /* TSOSimplePDFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5D75041ACD5D64006F5564 /* TSOSimplePDFViewController.xib */; };
 		8E7774021ACB194100B87AE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774011ACB194100B87AE9 /* main.m */; };
 		8E7774051ACB194100B87AE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774041ACB194100B87AE9 /* AppDelegate.m */; };
 		8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E7774061ACB194100B87AE9 /* Images.xcassets */; };
@@ -28,6 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E5D74EF1ACD504E006F5564 /* TSOBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSOBookViewController.h; path = ../TSOBookViewController.h; sourceTree = "<group>"; };
+		8E5D74F01ACD504E006F5564 /* TSOBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSOBookViewController.m; path = ../TSOBookViewController.m; sourceTree = "<group>"; };
+		8E5D74F11ACD504E006F5564 /* TSOBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TSOBookViewController.xib; path = ../TSOBookViewController.xib; sourceTree = "<group>"; };
+		8E5D75021ACD5D64006F5564 /* TSOSimplePDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSOSimplePDFViewController.h; path = ../TSOSimplePDFViewController.h; sourceTree = "<group>"; };
+		8E5D75031ACD5D64006F5564 /* TSOSimplePDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSOSimplePDFViewController.m; path = ../TSOSimplePDFViewController.m; sourceTree = "<group>"; };
+		8E5D75041ACD5D64006F5564 /* TSOSimplePDFViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TSOSimplePDFViewController.xib; path = ../TSOSimplePDFViewController.xib; sourceTree = "<group>"; };
 		8E7773FC1ACB194100B87AE9 /* HackerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7774001ACB194100B87AE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E7774011ACB194100B87AE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,6 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E5D74F41ACD506E006F5564 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8E5D74EF1ACD504E006F5564 /* TSOBookViewController.h */,
+				8E5D74F01ACD504E006F5564 /* TSOBookViewController.m */,
+				8E5D74F11ACD504E006F5564 /* TSOBookViewController.xib */,
+				8E5D75021ACD5D64006F5564 /* TSOSimplePDFViewController.h */,
+				8E5D75031ACD5D64006F5564 /* TSOSimplePDFViewController.m */,
+				8E5D75041ACD5D64006F5564 /* TSOSimplePDFViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		8E7773F31ACB194100B87AE9 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +112,7 @@
 				8E77742A1ACC2D2C00B87AE9 /* TSODownloadController.h */,
 				8E77742B1ACC2D2C00B87AE9 /* TSODownloadController.m */,
 				8E7774291ACC2D0900B87AE9 /* Settings.h */,
+				8E5D74F41ACD506E006F5564 /* Controllers */,
 				8E7774221ACB19B100B87AE9 /* Models */,
 				8E7774031ACB194100B87AE9 /* AppDelegate.h */,
 				8E7774041ACB194100B87AE9 /* AppDelegate.m */,
@@ -216,6 +240,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E5D75061ACD5D64006F5564 /* TSOSimplePDFViewController.xib in Resources */,
+				8E5D74F31ACD504E006F5564 /* TSOBookViewController.xib in Resources */,
 				8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */,
 				8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */,
 			);
@@ -237,9 +263,11 @@
 			files = (
 				8E7774051ACB194100B87AE9 /* AppDelegate.m in Sources */,
 				8E7774211ACB19A700B87AE9 /* TSOBook.m in Sources */,
+				8E5D74F21ACD504E006F5564 /* TSOBookViewController.m in Sources */,
 				8E7774251ACB19ED00B87AE9 /* TSOLibrary.m in Sources */,
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,
 				8E77742C1ACC2D2C00B87AE9 /* TSODownloadController.m in Sources */,
+				8E5D75051ACD5D64006F5564 /* TSOSimplePDFViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +452,7 @@
 				8E77741B1ACB194100B87AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E77741C1ACB194100B87AE9 /* Build configuration list for PBXNativeTarget "HackerBooksTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +461,7 @@
 				8E77741E1ACB194100B87AE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
