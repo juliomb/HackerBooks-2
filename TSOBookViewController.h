@@ -9,7 +9,7 @@
 @import UIKit;
 @class TSOBook;
 
-@interface TSOBookViewController : UIViewController
+@interface TSOBookViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) TSOBook *model;
 

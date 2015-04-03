@@ -25,4 +25,6 @@
 
 -(id) initWithDictionary:(NSDictionary *) dictionary;
 
+-(NSData *) imageData;
+
 @end

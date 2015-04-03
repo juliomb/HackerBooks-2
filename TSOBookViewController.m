@@ -42,12 +42,10 @@
     self.tagsLabel.text = [self.model.tags componentsJoinedByString:@", "];
     
     // cargamos la imagen dsede la sandbox
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSURL *url = [urls lastObject];
-    url = [url URLByAppendingPathComponent:[IMAGE_PREFIX stringByAppendingString:self.model.title]];
-    NSData *imageData = [NSData dataWithContentsOfURL:url];
-    self.bookImage.image = [UIImage imageWithData:imageData];
+    self.bookImage.image = [UIImage imageWithData:[self.model imageData]];
+    
+    // Si estoy dentro de un SplitVC me pongo el botón
+    self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
     
 }
 
@@ -66,6 +64,28 @@
     // Creamos el controlador del PDF y hacemos un push
     TSOSimplePDFViewController *pdfVC = [[TSOSimplePDFViewController alloc] initWithModel:self.model];
     [self.navigationController pushViewController:pdfVC animated:YES];
+    
+}
+
+
+# pragma mark - UISplitViewControllerDelegate
+-(void) splitViewController:(UISplitViewController *)svc
+    willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode{
+    
+    // Averiguar si la tabla se ve o no
+    if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
+        
+        // La tabla está oculta y cuelga del botón
+        // Ponemos ese botón en mi barra de navegación
+        self.navigationItem.leftBarButtonItem = svc.displayModeButtonItem;
+        
+    }else{
+        
+        // Se muestra la tabla: oculto el botón de la barra de navegación
+        self.navigationItem.leftBarButtonItem = nil;
+        
+    }
+    
     
 }
 

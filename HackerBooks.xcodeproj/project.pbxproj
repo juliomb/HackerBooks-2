@@ -19,6 +19,7 @@
 		8E7774211ACB19A700B87AE9 /* TSOBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774201ACB19A700B87AE9 /* TSOBook.m */; };
 		8E7774251ACB19ED00B87AE9 /* TSOLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774241ACB19ED00B87AE9 /* TSOLibrary.m */; };
 		8E77742C1ACC2D2C00B87AE9 /* TSODownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E77742B1ACC2D2C00B87AE9 /* TSODownloadController.m */; };
+		8E84C9F71ACEFF0B006908A2 /* TSOLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F61ACEFF0B006908A2 /* TSOLibraryTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		8E7774291ACC2D0900B87AE9 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		8E77742A1ACC2D2C00B87AE9 /* TSODownloadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSODownloadController.h; path = ../TSODownloadController.h; sourceTree = "<group>"; };
 		8E77742B1ACC2D2C00B87AE9 /* TSODownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSODownloadController.m; path = ../TSODownloadController.m; sourceTree = "<group>"; };
+		8E84C9F51ACEFF0A006908A2 /* TSOLibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOLibraryTableViewController.h; sourceTree = "<group>"; };
+		8E84C9F61ACEFF0B006908A2 /* TSOLibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOLibraryTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				8E5D75021ACD5D64006F5564 /* TSOSimplePDFViewController.h */,
 				8E5D75031ACD5D64006F5564 /* TSOSimplePDFViewController.m */,
 				8E5D75041ACD5D64006F5564 /* TSOSimplePDFViewController.xib */,
+				8E84C9F51ACEFF0A006908A2 /* TSOLibraryTableViewController.h */,
+				8E84C9F61ACEFF0B006908A2 /* TSOLibraryTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				8E7774211ACB19A700B87AE9 /* TSOBook.m in Sources */,
 				8E5D74F21ACD504E006F5564 /* TSOBookViewController.m in Sources */,
 				8E7774251ACB19ED00B87AE9 /* TSOLibrary.m in Sources */,
+				8E84C9F71ACEFF0B006908A2 /* TSOLibraryTableViewController.m in Sources */,
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,
 				8E77742C1ACC2D2C00B87AE9 /* TSODownloadController.m in Sources */,
 				8E5D75051ACD5D64006F5564 /* TSOSimplePDFViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "TSOBook.h"
+#import "Settings.h"
 
 @implementation TSOBook
 
@@ -56,5 +57,16 @@
     
 }
 
+
+-(NSData *) imageData{
+    
+    // Método que recoge de la sandbox la imagen del libro y la devuelve en un NSData
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *url = [urls lastObject];
+    url = [url URLByAppendingPathComponent:[IMAGE_PREFIX stringByAppendingString:self.title]];
+    return [NSData dataWithContentsOfURL:url];
+    
+}
 
 @end

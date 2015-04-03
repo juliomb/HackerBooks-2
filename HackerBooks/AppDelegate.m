@@ -12,6 +12,7 @@
 #import "Settings.h"
 #import "TSODownloadController.h"
 #import "TSOBookViewController.h"
+#import "TSOLibraryTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -76,10 +77,24 @@
 //        NSLog(@"%@  ", tag);
 //    }
     
-    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:[library bookForTag:@"python" atIndex:1]];
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:bookVC];
     
-    self.window.rootViewController = navVC;
+    TSOLibraryTableViewController *libVC = [[TSOLibraryTableViewController alloc] initWithModel:library
+                                                                                          style:UITableViewStyleGrouped];
+    UINavigationController *libNav = [[UINavigationController alloc] initWithRootViewController:libVC];
+    
+    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:[library bookForTag:@"python" atIndex:1]];
+    UINavigationController *bookNav = [[UINavigationController alloc] initWithRootViewController:bookVC];
+    
+    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
+    splitVC.viewControllers = @[libNav, bookNav];
+    
+    // Asignamos los delegados
+    splitVC.delegate = bookVC;
+
+    
+    self.window.rootViewController = splitVC;
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
