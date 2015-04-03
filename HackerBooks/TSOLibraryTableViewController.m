@@ -9,6 +9,7 @@
 #import "TSOLibraryTableViewController.h"
 #import "TSOLibrary.h"
 #import "TSOBook.h"
+#import "Settings.h"
 
 @interface TSOLibraryTableViewController ()
 
@@ -101,6 +102,23 @@
                                     didSelectBook:book];
     }
     
+    // Mandamos notificación de que hemos cambiado
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    NSDictionary *dict = @{BOOK_KEY: book};
+    NSNotification *notification = [NSNotification notificationWithName:BOOK_DID_CHANGE_NOTIFICATION
+                                                                 object:self
+                                                               userInfo:dict];
+    [nc postNotification:notification];
+    
+    
+    // Guardamos las coordenadas para volver a abrir desde el libro en el que estábamos
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    NSArray *coords = @[@(indexPath.section), @(indexPath.row)];
+    
+    [userDefaults setObject:coords forKey:LAST_SELECTED_BOOK];
+    
+    [userDefaults synchronize];
     
 }
 

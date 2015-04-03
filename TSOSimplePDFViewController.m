@@ -8,6 +8,7 @@
 
 #import "TSOSimplePDFViewController.h"
 #import "TSOBook.h"
+#import "Settings.h"
 
 @interface TSOSimplePDFViewController ()
 
@@ -35,9 +36,14 @@
     self.browser.delegate = self;
     
     // arrancamos le inidicator y empezamos a cargar el pdf
-    [self.activityView setHidden:NO];
-    [self.activityView startAnimating];
-    [self.browser loadRequest:[NSURLRequest requestWithURL:self.model.urlToPDF]];
+    [self syncWithModel];
+    
+    // Alta en notificaciones
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(notifyThatBookDidChange:)
+               name:BOOK_DID_CHANGE_NOTIFICATION
+             object:nil];
     
 }
 
@@ -45,6 +51,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+
+-(void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,6 +73,32 @@
     
 }
 
+
+# pragma mark - Notifications
+
+// BOOK_DID_CHANGE_NOTIFICATION
+-(void) notifyThatBookDidChange:(NSNotification *) notification{
+    
+    // sacamos el libro
+    TSOBook *book = [notification.userInfo objectForKey:BOOK_KEY];
+    
+    // actualizamos el model
+    self.model = book;
+    
+    // sincronizamos modelo y vista
+    [self syncWithModel];
+    
+}
+
+
+# pragma mark - Utils
+-(void) syncWithModel{
+    
+    [self.activityView setHidden:NO];
+    [self.activityView startAnimating];
+    [self.browser loadRequest:[NSURLRequest requestWithURL:self.model.urlToPDF]];
+    
+}
 
 
 @end

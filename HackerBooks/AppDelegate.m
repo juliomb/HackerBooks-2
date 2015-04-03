@@ -27,12 +27,13 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     TSODownloadController *dC = [[TSODownloadController alloc] init];
     
-    //[userDefaults removeObjectForKey:FIRST_EJECUTION]; // OJO!!!!
-    if (![userDefaults objectForKey:FIRST_EJECUTION]){
+    //[userDefaults removeObjectForKey:LAST_SELECTED_BOOK]; // OJO!!!!
+    if (![userDefaults objectForKey:LAST_SELECTED_BOOK]){
         
         // ponemos un valor por defecto
-        [userDefaults setObject:@1 forKey:FIRST_EJECUTION];
+        [userDefaults setObject:@[@0, @0] forKey:LAST_SELECTED_BOOK];
         
+        // ES LA PRIMERA EJECUCION, descargamos la librería
         // le pasamos la tarea al controlador de descargas
         NSURL *url = [NSURL URLWithString:JSON_URL];
         [dC downloadAndSaveJSONWithURL:url];
@@ -82,7 +83,9 @@
                                                                                           style:UITableViewStyleGrouped];
     UINavigationController *libNav = [[UINavigationController alloc] initWithRootViewController:libVC];
     
-    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:[library bookForTag:@"python" atIndex:1]];
+    
+    TSOBook *book = [self lastSelectedBookInModel:library];
+    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:book];
     UINavigationController *bookNav = [[UINavigationController alloc] initWithRootViewController:bookVC];
     
     UISplitViewController *splitVC = [[UISplitViewController alloc] init];
@@ -119,6 +122,26 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+-(TSOBook *) lastSelectedBookInModel:(TSOLibrary *) model{
+    
+    // Obtengo en NSUserDefaults
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    // Saco las coordenadas del último personaje
+    NSArray *coords = [userDefaults objectForKey:LAST_SELECTED_BOOK];
+    NSUInteger section = [[coords firstObject] integerValue];
+    NSUInteger position = [[coords lastObject] integerValue];
+    
+    // Obtengo el libro
+    NSString *tag = [[model tags] objectAtIndex:section];
+    TSOBook *book = [model bookForTag:tag atIndex:position];
+    
+    // Lo devuelvo
+    return book;
+    
 }
 
 @end
