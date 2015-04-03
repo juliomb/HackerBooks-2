@@ -13,3 +13,4 @@
 #define LAST_SELECTED_BOOK @"lastSelectedBook"
 #define BOOK_KEY @"bookKey"
 #define BOOK_DID_CHANGE_NOTIFICATION @"bookDidChangeNotification"
+#define BOOK_CELL_HEIGHT 80

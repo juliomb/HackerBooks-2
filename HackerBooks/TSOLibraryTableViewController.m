@@ -10,6 +10,7 @@
 #import "TSOLibrary.h"
 #import "TSOBook.h"
 #import "Settings.h"
+#import "TSOBookTableViewCell.h"
 
 @interface TSOLibraryTableViewController ()
 
@@ -34,6 +35,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UINib *nib = [UINib nibWithNibName:@"TSOBookTableViewCell"
+                                bundle:[NSBundle mainBundle]];
+    
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:[TSOBookTableViewCell cellId]];
+                  
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -74,17 +81,13 @@
     TSOBook *book = [self.model bookForTag:tag atIndex:indexPath.row];
     
     // Cramos la celda
-    static NSString *cellId = @"BookCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:cellId];
-    }
+    TSOBookTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[TSOBookTableViewCell cellId]
+                                                            forIndexPath:indexPath];
     
     // Configuramos la celda
-    cell.textLabel.text = book.title;
-    cell.detailTextLabel.text = [book.authors componentsJoinedByString:@", "];
-    cell.imageView.image = [UIImage imageWithData:[book imageData]];
+    cell.titleLabel.text = book.title;
+    cell.authorsLabel.text = [book.authors componentsJoinedByString:@", "];
+    cell.bookIcon.image = [UIImage imageWithData:[book imageData]];
     
     return cell;
 }
@@ -120,6 +123,10 @@
     
     [userDefaults synchronize];
     
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return BOOK_CELL_HEIGHT;
 }
 
 @end

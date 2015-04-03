@@ -20,6 +20,8 @@
 		8E7774251ACB19ED00B87AE9 /* TSOLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774241ACB19ED00B87AE9 /* TSOLibrary.m */; };
 		8E77742C1ACC2D2C00B87AE9 /* TSODownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E77742B1ACC2D2C00B87AE9 /* TSODownloadController.m */; };
 		8E84C9F71ACEFF0B006908A2 /* TSOLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F61ACEFF0B006908A2 /* TSOLibraryTableViewController.m */; };
+		8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */; };
+		8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		8E77742B1ACC2D2C00B87AE9 /* TSODownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSODownloadController.m; path = ../TSODownloadController.m; sourceTree = "<group>"; };
 		8E84C9F51ACEFF0A006908A2 /* TSOLibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOLibraryTableViewController.h; sourceTree = "<group>"; };
 		8E84C9F61ACEFF0B006908A2 /* TSOLibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOLibraryTableViewController.m; sourceTree = "<group>"; };
+		8E84C9F81ACF17FE006908A2 /* TSOBookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOBookTableViewCell.h; sourceTree = "<group>"; };
+		8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOBookTableViewCell.m; sourceTree = "<group>"; };
+		8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSOBookTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,7 @@
 				8E7774291ACC2D0900B87AE9 /* Settings.h */,
 				8E5D74F41ACD506E006F5564 /* Controllers */,
 				8E7774221ACB19B100B87AE9 /* Models */,
+				8E84C9FD1ACF180B006908A2 /* Views */,
 				8E7774031ACB194100B87AE9 /* AppDelegate.h */,
 				8E7774041ACB194100B87AE9 /* AppDelegate.m */,
 				8E7774061ACB194100B87AE9 /* Images.xcassets */,
@@ -163,6 +169,16 @@
 				8E7774241ACB19ED00B87AE9 /* TSOLibrary.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		8E84C9FD1ACF180B006908A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8E84C9F81ACF17FE006908A2 /* TSOBookTableViewCell.h */,
+				8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */,
+				8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */,
 				8E5D75061ACD5D64006F5564 /* TSOSimplePDFViewController.xib in Resources */,
 				8E5D74F31ACD504E006F5564 /* TSOBookViewController.xib in Resources */,
 				8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */,
@@ -274,6 +291,7 @@
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,
 				8E77742C1ACC2D2C00B87AE9 /* TSODownloadController.m in Sources */,
 				8E5D75051ACD5D64006F5564 /* TSOSimplePDFViewController.m in Sources */,
+				8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
