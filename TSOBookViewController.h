@@ -8,8 +8,9 @@
 
 @import UIKit;
 @class TSOBook;
+#import "TSOLibraryTableViewController.h"
 
-@interface TSOBookViewController : UIViewController <UISplitViewControllerDelegate>
+@interface TSOBookViewController : UIViewController <UISplitViewControllerDelegate, TSOLibraryTableViewControllerDelegate>
 
 @property (strong, nonatomic) TSOBook *model;
 

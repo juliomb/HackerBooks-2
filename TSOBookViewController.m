@@ -36,13 +36,9 @@
     
     // Asegurarse de que no se ocupa toda la pantalla cuando está en un combinador
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    // construimos una string con los elementos de los array
-    self.authorsLabel.text = [self.model.authors componentsJoinedByString:@", "];
-    self.tagsLabel.text = [self.model.tags componentsJoinedByString:@", "];
-    
-    // cargamos la imagen dsede la sandbox
-    self.bookImage.image = [UIImage imageWithData:[self.model imageData]];
+
+    // Sincronizamos vista y modelo
+    [self syncViewWithModel];
     
     // Si estoy dentro de un SplitVC me pongo el botón
     self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -68,6 +64,21 @@
 }
 
 
+# pragma mark - Utils
+-(void) syncViewWithModel{
+    
+    self.title = self.model.title;
+    
+    // construimos una string con los elementos de los array
+    self.authorsLabel.text = [self.model.authors componentsJoinedByString:@", "];
+    self.tagsLabel.text = [self.model.tags componentsJoinedByString:@", "];
+    
+    // cargamos la imagen dsede la sandbox
+    self.bookImage.image = [UIImage imageWithData:[self.model imageData]];
+    
+}
+
+
 # pragma mark - UISplitViewControllerDelegate
 -(void) splitViewController:(UISplitViewController *)svc
     willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode{
@@ -86,6 +97,18 @@
         
     }
     
+    
+}
+
+
+# pragma mark - TSOLibraryTableViewControllerDelegate
+-(void) libraryTableViewController:(TSOLibraryTableViewController *)libVC didSelectBook:(TSOBook *)book{
+    
+    // cambiamos el modelo
+    self.model = book;
+    
+    // sincronizamos modelo y vista
+    [self syncViewWithModel];
     
 }
 

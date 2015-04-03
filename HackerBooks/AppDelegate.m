@@ -90,7 +90,7 @@
     
     // Asignamos los delegados
     splitVC.delegate = bookVC;
-
+    libVC.delegate = bookVC;
     
     self.window.rootViewController = splitVC;
     
