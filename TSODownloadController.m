@@ -8,6 +8,7 @@
 
 #import "TSODownloadController.h"
 #import "Settings.h"
+#import "TSOBook.h"
 
 @implementation TSODownloadController
 
@@ -121,5 +122,77 @@
     return mutable;
 
 }
+
+
+
+-(void) savePDFWithBook:(TSOBook *) book
+                   data:(NSData *) data{
+    
+    // lo guardamos en la carpeta documents
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *url = [urls lastObject];
+    url = [url URLByAppendingPathComponent:[PDF_PREFIX stringByAppendingString:book.title]];
+    NSError *error = nil;
+    BOOL aux = [data writeToURL:url
+                        options:NSDataWritingAtomic
+                          error:&error];
+    // Comprobamos la escritura
+    if (!aux){
+        NSLog(@"Error al guardar imagen: %@", error.userInfo);
+        
+    }
+}
+
+
+
+-(void) updateLibraryWithBook:(TSOBook *) book{
+    
+    NSMutableArray *libraryArray = [[self booksDictionaryArray] mutableCopy];
+    
+    NSDictionary *bookDict = [book asJSONDictionary];
+    NSString *title = book.title;
+    
+    NSUInteger index = 0;
+    
+    for (NSDictionary *bookAux in libraryArray) {
+        
+        // Si tienen el mismo title reemplazamos los diccionarios
+        if ([title compare:[bookAux objectForKey:@"title"]] == 0) {
+            [libraryArray setObject:bookDict atIndexedSubscript:index];
+            break;
+        }
+        
+        index += 1;
+        
+    }
+    
+    // Generamos el NSData con las modificaciones
+    NSError *error = nil;
+    NSData *newData = [NSJSONSerialization dataWithJSONObject:libraryArray
+                                                      options:kNilOptions
+                                                        error:&error];
+    if (newData == nil) {
+        NSLog(@"Error generando el NSData");
+    }
+    
+    // Escribimos en la nueva librería en la sandbox
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSURL *url = [urls lastObject];
+    url = [url URLByAppendingPathComponent:NSDATA_LIBRARY];
+    BOOL aux = [newData writeToURL:url
+                           options:NSDataWritingAtomic
+                             error:&error];
+    
+    // Comprobamos la escritura
+    if (aux){
+        NSLog(@"Datos almacenados correctamente");
+    }
+    
+}
+
+
+
 
 @end

@@ -58,6 +58,21 @@
 }
 
 
+// Sobreescribimos el setter de urlToPDF para enviar notificacion
+-(void) downloadedPDF{
+    
+    self.urlToPDF = [NSURL URLWithString:@""];
+    
+    // Mandamos notificacion si la url es vacía, PDF descargado
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    NSNotification *notification = [NSNotification notificationWithName:BOOK_DID_DOWNLOAD_PDF
+                                                                 object:self
+                                                               userInfo:nil];
+    [nc postNotification:notification];
+
+}
+
+
 -(NSData *) imageData{
     
     // Método que recoge de la sandbox la imagen del libro y la devuelve en un NSData
@@ -66,6 +81,32 @@
     NSURL *url = [urls lastObject];
     url = [url URLByAppendingPathComponent:[IMAGE_PREFIX stringByAppendingString:self.title]];
     return [NSData dataWithContentsOfURL:url];
+    
+}
+
+
+-(NSData *) pdfData{
+    
+    // Si tenemos el pdf en local lo rescata de la sandbox y lo pasa, si no lo descarga
+    if ([[self.urlToPDF absoluteString] compare:@""] == 0){
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+        NSURL *url = [urls lastObject];
+        url = [url URLByAppendingPathComponent:[PDF_PREFIX stringByAppendingString:self.title]];
+        return [NSData dataWithContentsOfURL:url];
+    }else{
+        return [NSData dataWithContentsOfURL:self.urlToPDF];
+    }
+    
+}
+
+-(NSDictionary *) asJSONDictionary{
+    
+    return @{@"authors": [self.authors componentsJoinedByString:@", "],
+             @"image_url": @"",
+             @"pdf_url": @"",
+             @"tags": [self.tags componentsJoinedByString:@", "],
+             @"title": self.title};
     
 }
 

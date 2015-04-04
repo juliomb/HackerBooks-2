@@ -25,6 +25,11 @@
 
 -(id) initWithDictionary:(NSDictionary *) dictionary;
 
+-(void) downloadedPDF;
+
 -(NSData *) imageData;
+-(NSData *) pdfData;
+-(NSDictionary *) asJSONDictionary;
+
 
 @end

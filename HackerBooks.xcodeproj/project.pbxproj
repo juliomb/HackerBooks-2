@@ -22,6 +22,7 @@
 		8E84C9F71ACEFF0B006908A2 /* TSOLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F61ACEFF0B006908A2 /* TSOLibraryTableViewController.m */; };
 		8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */; };
 		8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */; };
+		8E9170FA1AD066F300641505 /* pdf17.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170F91AD066F300641505 /* pdf17.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8E84C9F81ACF17FE006908A2 /* TSOBookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOBookTableViewCell.h; sourceTree = "<group>"; };
 		8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOBookTableViewCell.m; sourceTree = "<group>"; };
 		8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSOBookTableViewCell.xib; sourceTree = "<group>"; };
+		8E9170F91AD066F300641505 /* pdf17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf17.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		8E7773F31ACB194100B87AE9 = {
 			isa = PBXGroup;
 			children = (
+				8E9170FB1AD066FB00641505 /* Resources */,
 				8E7773FE1ACB194100B87AE9 /* HackerBooks */,
 				8E7774121ACB194100B87AE9 /* HackerBooksTests */,
 				8E7773FD1ACB194100B87AE9 /* Products */,
@@ -179,6 +182,14 @@
 				8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		8E9170FB1AD066FB00641505 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8E9170F91AD066F300641505 /* pdf17.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			files = (
 				8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */,
 				8E5D75061ACD5D64006F5564 /* TSOSimplePDFViewController.xib in Resources */,
+				8E9170FA1AD066F300641505 /* pdf17.png in Resources */,
 				8E5D74F31ACD504E006F5564 /* TSOBookViewController.xib in Resources */,
 				8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */,
 				8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */,

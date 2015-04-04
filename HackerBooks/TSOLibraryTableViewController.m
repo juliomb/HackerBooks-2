@@ -30,6 +30,18 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    // Alta en notificaciones
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(reloadData:)
+               name:BOOK_DID_DOWNLOAD_PDF
+             object:nil];
+    
+}
 
 
 - (void)viewDidLoad {
@@ -47,6 +59,18 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    
+    // baja en notifaciones
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -88,6 +112,12 @@
     cell.titleLabel.text = book.title;
     cell.authorsLabel.text = [book.authors componentsJoinedByString:@", "];
     cell.bookIcon.image = [UIImage imageWithData:[book imageData]];
+    // si tenemos el pdf en local le quitamos la transparencia al icono
+    if ([[book.urlToPDF absoluteString] compare:@""] == 0){
+        cell.downloadIcon.alpha = 1;
+    }else{
+        cell.downloadIcon.alpha = 0.3f;
+    }
     
     return cell;
 }
@@ -127,6 +157,10 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return BOOK_CELL_HEIGHT;
+}
+
+-(void) reloadData:(NSNotification *) notification{
+    [self.tableView reloadData];
 }
 
 @end

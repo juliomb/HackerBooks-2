@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *browser;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+@property (strong, nonatomic) NSData *pdfData;
 
 -(id) initWithModel:(TSOBook *) model;
 

@@ -9,6 +9,7 @@
 #import "TSOSimplePDFViewController.h"
 #import "TSOBook.h"
 #import "Settings.h"
+#import "TSODownloadController.h"
 
 @interface TSOSimplePDFViewController ()
 
@@ -71,6 +72,22 @@
     // paramos el activity
     [self.activityView stopAnimating];
     
+    if ([[self.model.urlToPDF absoluteString] compare:@""] != 0){
+        
+        // Guardamos el pdf
+        TSODownloadController *dc = [[TSODownloadController alloc] init];
+        [dc savePDFWithBook:self.model data:self.pdfData];
+        
+        // Le indicamos al modelo que hemos descargado el pdf
+        [self.model downloadedPDF];
+        
+        // Ponemos el icono
+        //TODO
+        
+        // Actualizamos el JSON de la librería
+        [dc updateLibraryWithBook:self.model];
+    }
+    
 }
 
 
@@ -96,7 +113,14 @@
     
     [self.activityView setHidden:NO];
     [self.activityView startAnimating];
-    [self.browser loadRequest:[NSURLRequest requestWithURL:self.model.urlToPDF]];
+    //[self.browser loadRequest:[NSURLRequest requestWithURL:self.model.urlToPDF]];
+    
+    // lo guardamos en una propiedad por si tenemos que almacenalo despues
+    self.pdfData = [self.model pdfData];
+    [self.browser loadData:self.pdfData
+                  MIMEType:@"application/pdf"
+          textEncodingName:@"UTF-8"
+                   baseURL:nil];
     
 }
 
