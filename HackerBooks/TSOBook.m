@@ -8,6 +8,7 @@
 
 #import "TSOBook.h"
 #import "Settings.h"
+#import "TSODownloadController.h"
 
 @implementation TSOBook
 
@@ -24,6 +25,12 @@
         _tags = tags;
         _urlToImage = urlToImage;
         _urlToPDF = urlToPDF;
+        
+        if ([tags containsObject:FAVOURITE_TAG]){
+            _isFavourite = YES;
+        }else{
+            _isFavourite = NO;
+        }
     }
     
     return self;
@@ -58,17 +65,28 @@
 }
 
 
-// Sobreescribimos el setter de urlToPDF para enviar notificacion
--(void) downloadedPDF{
+-(void) downloadedPDFWithData:(NSData *) data{
     
-    self.urlToPDF = [NSURL URLWithString:@""];
-    
-    // Mandamos notificacion si la url es vacía, PDF descargado
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    NSNotification *notification = [NSNotification notificationWithName:BOOK_DID_DOWNLOAD_PDF
-                                                                 object:self
-                                                               userInfo:nil];
-    [nc postNotification:notification];
+    // si teníamos la url no vacía significa que tenemos que guardar en local
+    if ([[self.urlToPDF absoluteString] compare:@""] != 0){
+        
+        // ponemos la url vacía
+        self.urlToPDF = [NSURL URLWithString:@""];
+        
+        // Guardamos el pdf
+        TSODownloadController *dc = [[TSODownloadController alloc] init];
+        [dc savePDFWithBook:self data:data];
+        
+        // Actualizamos el JSON de la librería
+        [dc updateLibraryWithBook:self];
+        
+        // Mandamos notificacion de PDF descargado
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        NSNotification *notification = [NSNotification notificationWithName:BOOK_DID_DOWNLOAD_PDF
+                                                                     object:self
+                                                                   userInfo:nil];
+        [nc postNotification:notification];
+    }
 
 }
 
@@ -102,12 +120,68 @@
 
 -(NSDictionary *) asJSONDictionary{
     
+    NSMutableString *url = [@"" mutableCopy];
+    // si no tenemos guardado el libro en local guardamos la url de internet
+    if ([[self.urlToPDF absoluteString] compare:@""] != 0){
+        url = [[self.urlToPDF absoluteString] mutableCopy];
+    }
+    
     return @{@"authors": [self.authors componentsJoinedByString:@", "],
              @"image_url": @"",
-             @"pdf_url": @"",
+             @"pdf_url": url,
              @"tags": [self.tags componentsJoinedByString:@", "],
              @"title": self.title};
     
+}
+
+
+-(void) addToFavourites{
+    
+    // Añadimos el tag favoritos
+    NSMutableArray *mutableTags = [self.tags mutableCopy];
+    [mutableTags addObject:FAVOURITE_TAG];
+    self.tags = mutableTags;
+    
+    // Ponemos a true la propiedad booleana
+    self.isFavourite = YES;
+    
+    // Mandamos notificación
+    [self postFavouritesChangeNotification];
+    
+    // Persistimos los cambios
+    TSODownloadController *dc = [[TSODownloadController alloc] init];
+    [dc updateLibraryWithBook:self];
+    
+}
+
+-(void) removeFromFavourites{
+    
+    // Eliminamos el tag favoritos
+    NSMutableArray *mutableTags = [self.tags mutableCopy];
+    [mutableTags removeObject:FAVOURITE_TAG];
+    self.tags = mutableTags;
+    
+    // Ponemos a false la propiedad booleana
+    self.isFavourite = NO;
+    
+    // Mandamos notificación
+    [self postFavouritesChangeNotification];
+    
+    // Persistimos los cambios
+    TSODownloadController *dc = [[TSODownloadController alloc] init];
+    [dc updateLibraryWithBook:self];
+    
+}
+
+
+
+-(void) postFavouritesChangeNotification{
+    // Mandamos notificacion que ha cambiado la seccion favoritos
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    NSNotification *notification = [NSNotification notificationWithName:FAVOURITES_DID_CHANGE
+                                                                 object:self
+                                                               userInfo:nil];
+    [nc postNotification:notification];
 }
 
 @end

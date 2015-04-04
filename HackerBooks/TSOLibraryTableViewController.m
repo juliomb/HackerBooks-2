@@ -34,11 +34,15 @@
     
     [super viewWillAppear:animated];
     
-    // Alta en notificaciones
+    // Alta en notificaciones para las dos posibles, con ambas recargamos los datos de la tabla
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self
            selector:@selector(reloadData:)
                name:BOOK_DID_DOWNLOAD_PDF
+             object:nil];
+    [nc addObserver:self
+           selector:@selector(reloadData:)
+               name:FAVOURITES_DID_CHANGE
              object:nil];
     
 }
@@ -52,12 +56,7 @@
     
     [self.tableView registerNib:nib
          forCellReuseIdentifier:[TSOBookTableViewCell cellId]];
-                  
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        
 }
 
 

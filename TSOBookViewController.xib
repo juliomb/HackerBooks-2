@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="authorsLabel" destination="Xi5-Qs-Hff" id="o93-IO-AcS"/>
                 <outlet property="bookImage" destination="QWK-8u-HkN" id="aRw-j3-QSk"/>
+                <outlet property="favouriteButton" destination="vZ6-Iv-Bd3" id="6He-Xf-sST"/>
                 <outlet property="tagsLabel" destination="zrW-IW-9fw" id="6ug-pE-8da"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,7 +26,11 @@
                     <rect key="frame" x="0.0" y="529" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem style="plain" systemItem="bookmarks" id="vZ6-Iv-Bd3"/>
+                        <barButtonItem image="noFavorito.png" style="plain" id="vZ6-Iv-Bd3">
+                            <connections>
+                                <action selector="setFavorite:" destination="-1" id="TQE-es-swi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="UgK-As-2Kd"/>
                         <barButtonItem title="PDF" id="rv6-Bh-csI">
                             <connections>
@@ -33,19 +38,20 @@
                             </connections>
                         </barButtonItem>
                     </items>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </toolbar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xi5-Qs-Hff">
                     <rect key="frame" x="8" y="8" width="304" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zrW-IW-9fw">
                     <rect key="frame" x="8" y="500" width="304" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -54,6 +60,9 @@
             <point key="canvasLocation" x="310" y="333"/>
         </view>
     </objects>
+    <resources>
+        <image name="noFavorito.png" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -15,3 +15,5 @@
 #define BOOK_DID_CHANGE_NOTIFICATION @"bookDidChangeNotification"
 #define BOOK_DID_DOWNLOAD_PDF @"bookDidDownloadPDF"
 #define BOOK_CELL_HEIGHT 80
+#define FAVOURITE_TAG @"favorito"
+#define FAVOURITES_DID_CHANGE @"favouritesDidChange"

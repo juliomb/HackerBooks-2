@@ -63,6 +63,20 @@
     
 }
 
+- (IBAction)setFavorite:(id)sender {
+    
+    if ([self.model isFavourite]) {
+        // lo quitamos
+        [self.model removeFromFavourites];
+        self.favouriteButton.image = [UIImage imageNamed:@"noFavorito.png"];
+    }else{
+        // lo ponemos
+        [self.model addToFavourites];
+        self.favouriteButton.image = [UIImage imageNamed:@"favorito.png"];
+    }
+    
+}
+
 
 # pragma mark - Utils
 -(void) syncViewWithModel{
@@ -75,6 +89,13 @@
     
     // cargamos la imagen dsede la sandbox
     self.bookImage.image = [UIImage imageWithData:[self.model imageData]];
+    
+    // Cambiamos el icono dependiendo si es favorito o no
+    if ([self.model isFavourite]){
+        self.favouriteButton.image = [UIImage imageNamed:@"favorito.png"];
+    }else{
+        self.favouriteButton.image = [UIImage imageNamed:@"noFavorito.png"];
+    }
     
 }
 

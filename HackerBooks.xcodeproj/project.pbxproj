@@ -23,6 +23,8 @@
 		8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */; };
 		8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */; };
 		8E9170FA1AD066F300641505 /* pdf17.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170F91AD066F300641505 /* pdf17.png */; };
+		8E9170FD1AD0706500641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170FC1AD0706500641505 /* noFavorito.png */; };
+		8E9170FF1AD0706900641505 /* favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170FE1AD0706900641505 /* favorito.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOBookTableViewCell.m; sourceTree = "<group>"; };
 		8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSOBookTableViewCell.xib; sourceTree = "<group>"; };
 		8E9170F91AD066F300641505 /* pdf17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf17.png; sourceTree = "<group>"; };
+		8E9170FC1AD0706500641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
+		8E9170FE1AD0706900641505 /* favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorito.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				8E9170F91AD066F300641505 /* pdf17.png */,
+				8E9170FC1AD0706500641505 /* noFavorito.png */,
+				8E9170FE1AD0706900641505 /* favorito.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 				8E9170FA1AD066F300641505 /* pdf17.png in Resources */,
 				8E5D74F31ACD504E006F5564 /* TSOBookViewController.xib in Resources */,
 				8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */,
+				8E9170FD1AD0706500641505 /* noFavorito.png in Resources */,
+				8E9170FF1AD0706900641505 /* favorito.png in Resources */,
 				8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

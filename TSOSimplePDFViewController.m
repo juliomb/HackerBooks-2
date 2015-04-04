@@ -72,21 +72,8 @@
     // paramos el activity
     [self.activityView stopAnimating];
     
-    if ([[self.model.urlToPDF absoluteString] compare:@""] != 0){
-        
-        // Guardamos el pdf
-        TSODownloadController *dc = [[TSODownloadController alloc] init];
-        [dc savePDFWithBook:self.model data:self.pdfData];
-        
-        // Le indicamos al modelo que hemos descargado el pdf
-        [self.model downloadedPDF];
-        
-        // Ponemos el icono
-        //TODO
-        
-        // Actualizamos el JSON de la librería
-        [dc updateLibraryWithBook:self.model];
-    }
+    // Le indicamos al modelo que hemos descargado el pdf
+    [self.model downloadedPDFWithData:self.pdfData];
     
 }
 

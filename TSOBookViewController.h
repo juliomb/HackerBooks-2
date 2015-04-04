@@ -17,8 +17,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bookImage;
 @property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *favouriteButton;
 
 - (IBAction)readPDF:(id)sender;
+- (IBAction)setFavorite:(id)sender;
 
 -(id)initWithModel:(TSOBook *) model;
 

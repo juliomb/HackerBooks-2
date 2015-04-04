@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *tags;
 @property (nonatomic, strong) NSURL *urlToImage;
 @property (nonatomic, strong) NSURL *urlToPDF;
+@property (nonatomic, readwrite) BOOL isFavourite;
 
 // Inicializadores designados
 -(id) initWithTitle:(NSString *) title
@@ -25,7 +26,9 @@
 
 -(id) initWithDictionary:(NSDictionary *) dictionary;
 
--(void) downloadedPDF;
+-(void) downloadedPDFWithData:(NSData *) data;
+-(void) addToFavourites;
+-(void) removeFromFavourites;
 
 -(NSData *) imageData;
 -(NSData *) pdfData;
