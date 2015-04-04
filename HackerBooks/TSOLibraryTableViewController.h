@@ -19,7 +19,7 @@
 @end
 
 
-@interface TSOLibraryTableViewController : UITableViewController
+@interface TSOLibraryTableViewController : UITableViewController <TSOLibraryTableViewControllerDelegate>
 
 @property (nonatomic, strong) TSOLibrary *model;
 @property (nonatomic, weak) id<TSOLibraryTableViewControllerDelegate> delegate;

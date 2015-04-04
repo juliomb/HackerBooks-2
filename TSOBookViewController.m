@@ -75,6 +75,8 @@
         self.favouriteButton.image = [UIImage imageNamed:@"favorito.png"];
     }
     
+    self.tagsLabel.text = [self.model.tags componentsJoinedByString:@", "];
+    
 }
 
 

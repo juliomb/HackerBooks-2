@@ -48,54 +48,21 @@
     
     // Cogemos los datos de local e inicializamos la librería
     NSArray *dictArray = [dC booksDictionaryArray];
-    
-    // pruebas
     TSOLibrary *library = [[TSOLibrary alloc] initWithArray:dictArray];
 
-//    NSLog(@"%d", [library bookCountForTag:@"python"]);
-//    NSLog(@"%d", [library bookCountForTag:@"pythona"]);
-//    
-//    NSArray *books = [library booksForTag:@"python"];
-//    NSArray *books2 = [library booksForTag:@"aaa"];
-//    
-//    for (id book in books){
-//        NSLog(@"%@", book);
-//    }
-//    
-//    for (id book in books2){
-//        NSLog(@"%@", book);
-//    }
-//
-//    TSOBook *book = [library bookForTag:@"algo2" atIndex:0];
-//    TSOBook *book2 = [library bookForTag:@"python" atIndex:0];
-//    TSOBook *book3 = [library bookForTag:@"python" atIndex:1];
-//    TSOBook *book4 = [library bookForTag:@"python" atIndex:2];
-//    
-//    NSLog(@"%@ %@ %@ %@", book, book2, book3, book4);
-//    
-//    NSArray *tags = [library tags];
-//    for (id tag in tags){
-//        NSLog(@"%@  ", tag);
-//    }
     
-    
-    TSOLibraryTableViewController *libVC = [[TSOLibraryTableViewController alloc] initWithModel:library
-                                                                                          style:UITableViewStyleGrouped];
-    UINavigationController *libNav = [[UINavigationController alloc] initWithRootViewController:libVC];
-    
-    
-    TSOBook *book = [self lastSelectedBookInModel:library];
-    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:book];
-    UINavigationController *bookNav = [[UINavigationController alloc] initWithRootViewController:bookVC];
-    
-    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
-    splitVC.viewControllers = @[libNav, bookNav];
-    
-    // Asignamos los delegados
-    splitVC.delegate = bookVC;
-    libVC.delegate = bookVC;
-    
-    self.window.rootViewController = splitVC;
+    // Detectamos el tipo de pantalla
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        
+        // Tipo tableta
+        [self configureForPadWithModel:library];
+        
+    }else{
+        
+        // Tipo teléfono
+        [self configureForPhoneWithModel:library];
+        
+    }
     
     
     [self.window makeKeyAndVisible];
@@ -143,5 +110,49 @@
     return book;
     
 }
+
+
+-(void) configureForPadWithModel:(TSOLibrary *) library{
+    
+    // Creamos los controladores
+    TSOLibraryTableViewController *libVC = [[TSOLibraryTableViewController alloc] initWithModel:library
+                                                                                          style:UITableViewStyleGrouped];
+    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:[self lastSelectedBookInModel:library]];
+    
+    // Creamos los navigation
+    UINavigationController *libNav = [[UINavigationController alloc] initWithRootViewController:libVC];
+    UINavigationController *bookNav = [[UINavigationController alloc] initWithRootViewController:bookVC];
+    
+    
+    // Creamos el combinador
+    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
+    splitVC.viewControllers = @[libNav, bookNav];
+    
+    // Asignamos los delegados
+    splitVC.delegate = bookVC;
+    libVC.delegate = bookVC;
+    
+    // lo hacemos root
+    self.window.rootViewController = splitVC;
+}
+
+
+
+-(void) configureForPhoneWithModel:(TSOLibrary *) library{
+
+    // Creamos el controlador
+    TSOLibraryTableViewController *libVC = [[TSOLibraryTableViewController alloc] initWithModel:library
+                                                                                          style:UITableViewStyleGrouped];
+    // Creamos el navigation
+    UINavigationController *libNav = [[UINavigationController alloc] initWithRootViewController:libVC];
+    
+    // Asignamos los delegados
+    libVC.delegate = libVC;
+    
+    // Lo hacemos root
+    self.window.rootViewController = libNav;
+
+}
+
 
 @end

@@ -11,6 +11,7 @@
 #import "TSOBook.h"
 #import "Settings.h"
 #import "TSOBookTableViewCell.h"
+#import "TSOBookViewController.h"
 
 @interface TSOLibraryTableViewController ()
 
@@ -44,6 +45,9 @@
            selector:@selector(reloadData:)
                name:FAVOURITES_DID_CHANGE
              object:nil];
+    
+    // para que actualice los iconos de pdf
+    [self.tableView reloadData];
     
 }
 
@@ -160,6 +164,19 @@
 
 -(void) reloadData:(NSNotification *) notification{
     [self.tableView reloadData];
+}
+
+
+# pragma mark - TSOLibraryTableViewControllerDelegate
+-(void) libraryTableViewController:(TSOLibraryTableViewController *) libVC
+                     didSelectBook:(TSOBook *) book{
+    
+    // Creamos un BookVC
+    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:book];
+    
+    // Hacemos un push
+    [self.navigationController pushViewController:bookVC animated:YES];
+    
 }
 
 @end
