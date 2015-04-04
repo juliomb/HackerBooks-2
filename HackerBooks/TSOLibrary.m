@@ -8,6 +8,7 @@
 
 #import "TSOLibrary.h"
 #import "TSOBook.h"
+#import "Settings.h"
 
 @interface TSOLibrary()
 
@@ -58,7 +59,23 @@
     // Ordenamos alfabéticamente
     NSArray *sortedArray = [tags sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
-    return sortedArray;
+    
+    if ([sortedArray containsObject:FAVOURITE_TAG]) {
+        // Ponemos el tag favoritos primero
+        NSMutableArray *favouriteFirstArray = [[NSMutableArray alloc] initWithArray:@[FAVOURITE_TAG]];
+        
+        for (NSString *tag in sortedArray){
+            if ([tag compare:FAVOURITE_TAG] != 0) {
+                [favouriteFirstArray addObject:tag];
+            }
+        }
+        
+        return favouriteFirstArray;
+        
+    }else{
+        // Si no lo devolvemos como está
+        return sortedArray;
+    }
 }
 
 
