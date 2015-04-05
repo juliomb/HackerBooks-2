@@ -29,41 +29,47 @@
             NSLog(@"Error al parsear el JSON: %@", error.userInfo);
         }
         
-        // Descargamos, guardamos las imágenes y actualizamos el diccionario
-        NSMutableArray *arrayWithLocalImages = [[NSMutableArray alloc] init];
-        for (NSDictionary *dict in dictArray){
-            NSDictionary *dictWithImage = [self downloadAndSaveImageWithDictionary:dict];
-            [arrayWithLocalImages addObject:dictWithImage];
-        }
-            
-        // Ordenamos los libros alfabéticamente
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-        NSArray *descriptors = [NSArray arrayWithObject:descriptor];
-        NSArray *sortedArray = [arrayWithLocalImages sortedArrayUsingDescriptors:descriptors];
+        if ([dictArray isKindOfClass:[NSArray class]]){
         
-        // Generamos el NSData con las modificaciones
-        NSData *newData = [NSJSONSerialization dataWithJSONObject:sortedArray
-                                                          options:kNilOptions
-                                                            error:&error];
-        if (newData == nil) {
-            NSLog(@"Error generando el NSData");
-        }
+            // Descargamos, guardamos las imágenes y actualizamos el diccionario
+            NSMutableArray *arrayWithLocalImages = [[NSMutableArray alloc] init];
+            for (NSDictionary *dict in dictArray){
+                NSDictionary *dictWithImage = [self downloadAndSaveImageWithDictionary:dict];
+                [arrayWithLocalImages addObject:dictWithImage];
+            }
             
-        // Escribimos en la sandbox
-        NSFileManager *fm = [NSFileManager defaultManager];
-        NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-        NSURL *url = [urls lastObject];
-        url = [url URLByAppendingPathComponent:NSDATA_LIBRARY];
-        BOOL aux = [newData writeToURL:url
-                            options:NSDataWritingAtomic
-                              error:&error];
-        
-        // Comprobamos la escritura
-        if (aux){
-            NSLog(@"Datos almacenados correctamente");
+            // Ordenamos los libros alfabéticamente
+            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+            NSArray *descriptors = [NSArray arrayWithObject:descriptor];
+            NSArray *sortedArray = [arrayWithLocalImages sortedArrayUsingDescriptors:descriptors];
+            
+            // Generamos el NSData con las modificaciones
+            NSData *newData = [NSJSONSerialization dataWithJSONObject:sortedArray
+                                                              options:kNilOptions
+                                                                error:&error];
+            if (newData == nil) {
+                NSLog(@"Error generando el NSData");
+            }
+            
+            // Escribimos en la sandbox
+            NSFileManager *fm = [NSFileManager defaultManager];
+            NSArray *urls = [fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+            NSURL *url = [urls lastObject];
+            url = [url URLByAppendingPathComponent:NSDATA_LIBRARY];
+            BOOL aux = [newData writeToURL:url
+                                   options:NSDataWritingAtomic
+                                     error:&error];
+            
+            // Comprobamos la escritura
+            if (aux){
+                NSLog(@"Datos almacenados correctamente");
+                
+            }else{
+                NSLog(@"Error al escribir los datos: %@", error.userInfo);
+            }
             
         }else{
-            NSLog(@"Error al escribir los datos: %@", error.userInfo);
+            NSLog(@"No nos hemos descargado un array, si no un diccionario");
         }
 
     }else{
