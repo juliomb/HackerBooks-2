@@ -23,8 +23,10 @@
 		8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */; };
 		8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */; };
 		8E9170FA1AD066F300641505 /* pdf17.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170F91AD066F300641505 /* pdf17.png */; };
-		8E9170FD1AD0706500641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170FC1AD0706500641505 /* noFavorito.png */; };
-		8E9170FF1AD0706900641505 /* favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170FE1AD0706900641505 /* favorito.png */; };
+		8E9171051AD16C4A00641505 /* favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171041AD16C4A00641505 /* favorito.png */; };
+		8E9171071AD16C7F00641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171061AD16C7F00641505 /* noFavorito.png */; };
+		8E9171091AD16F6E00641505 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171081AD16F6E00641505 /* launch.jpg */; };
+		8E9171131AD173D200641505 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171121AD173D200641505 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +69,10 @@
 		8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOBookTableViewCell.m; sourceTree = "<group>"; };
 		8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSOBookTableViewCell.xib; sourceTree = "<group>"; };
 		8E9170F91AD066F300641505 /* pdf17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf17.png; sourceTree = "<group>"; };
-		8E9170FC1AD0706500641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
-		8E9170FE1AD0706900641505 /* favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorito.png; sourceTree = "<group>"; };
+		8E9171041AD16C4A00641505 /* favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorito.png; sourceTree = "<group>"; };
+		8E9171061AD16C7F00641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
+		8E9171081AD16F6E00641505 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
+		8E9171121AD173D200641505 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,9 +195,11 @@
 		8E9170FB1AD066FB00641505 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E9171121AD173D200641505 /* icon.png */,
 				8E9170F91AD066F300641505 /* pdf17.png */,
-				8E9170FC1AD0706500641505 /* noFavorito.png */,
-				8E9170FE1AD0706900641505 /* favorito.png */,
+				8E9171041AD16C4A00641505 /* favorito.png */,
+				8E9171061AD16C7F00641505 /* noFavorito.png */,
+				8E9171081AD16F6E00641505 /* launch.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -279,13 +285,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */,
+				8E9171131AD173D200641505 /* icon.png in Resources */,
+				8E9171071AD16C7F00641505 /* noFavorito.png in Resources */,
 				8E5D75061ACD5D64006F5564 /* TSOSimplePDFViewController.xib in Resources */,
 				8E9170FA1AD066F300641505 /* pdf17.png in Resources */,
+				8E9171051AD16C4A00641505 /* favorito.png in Resources */,
 				8E5D74F31ACD504E006F5564 /* TSOBookViewController.xib in Resources */,
 				8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */,
-				8E9170FD1AD0706500641505 /* noFavorito.png in Resources */,
-				8E9170FF1AD0706900641505 /* favorito.png in Resources */,
 				8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */,
+				8E9171091AD16F6E00641505 /* launch.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
