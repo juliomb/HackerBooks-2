@@ -102,12 +102,15 @@
     [self.activityView startAnimating];
     //[self.browser loadRequest:[NSURLRequest requestWithURL:self.model.urlToPDF]];
     
-    // lo guardamos en una propiedad por si tenemos que almacenalo despues
-    self.pdfData = [self.model pdfData];
-    [self.browser loadData:self.pdfData
-                  MIMEType:@"application/pdf"
-          textEncodingName:@"UTF-8"
-                   baseURL:nil];
+    // CODIGO QUE SE EJECUTA EN OTRO HILO
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // lo guardamos en una propiedad por si tenemos que almacenalo despues
+        self.pdfData = [self.model pdfData];
+        [self.browser loadData:self.pdfData
+                      MIMEType:@"application/pdf"
+              textEncodingName:@"UTF-8"
+                       baseURL:nil];
+    });
     
 }
 

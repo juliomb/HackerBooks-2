@@ -43,6 +43,21 @@
     // Si estoy dentro de un SplitVC me pongo el botón
     self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
     
+    // Alta en notificaciones para cambiar imagen de favoritos
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(favouritesDidChange:)
+               name:FAVOURITES_DID_CHANGE
+             object:nil];
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    // baja en notifaciones
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -68,14 +83,24 @@
     if ([self.model isFavourite]) {
         // lo quitamos
         [self.model removeFromFavourites];
-        self.favouriteButton.image = [UIImage imageNamed:@"noFavorito.png"];
     }else{
         // lo ponemos
         [self.model addToFavourites];
-        self.favouriteButton.image = [UIImage imageNamed:@"favorito.png"];
     }
     
     self.tagsLabel.text = [self.model.tags componentsJoinedByString:@", "];
+    
+}
+
+
+// FAVOURITES_DID_CHANGE
+-(void) favouritesDidChange:(NSNotification *) notification{
+    
+    if ([self.model isFavourite]) {
+        self.favouriteButton.image = [UIImage imageNamed:@"favorito.png"];
+    }else{
+        self.favouriteButton.image = [UIImage imageNamed:@"noFavorito.png"];
+    }
     
 }
 
@@ -100,7 +125,6 @@
     }
     
 }
-
 
 # pragma mark - UISplitViewControllerDelegate
 -(void) splitViewController:(UISplitViewController *)svc
