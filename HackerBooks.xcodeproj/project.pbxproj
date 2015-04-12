@@ -27,6 +27,7 @@
 		8E9171071AD16C7F00641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171061AD16C7F00641505 /* noFavorito.png */; };
 		8E9171091AD16F6E00641505 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171081AD16F6E00641505 /* launch.jpg */; };
 		8E9171131AD173D200641505 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171121AD173D200641505 /* icon.png */; };
+		8EF7CCD61ADAFF5E007A4924 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCD41ADAFF5E007A4924 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		8E9171061AD16C7F00641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
 		8E9171081AD16F6E00641505 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		8E9171121AD173D200641505 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8EF7CCD51ADAFF5E007A4924 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				8E7774201ACB19A700B87AE9 /* TSOBook.m */,
 				8E7774231ACB19ED00B87AE9 /* TSOLibrary.h */,
 				8E7774241ACB19ED00B87AE9 /* TSOLibrary.m */,
+				8EF7CCD41ADAFF5E007A4924 /* Model.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				8E84C9F71ACEFF0B006908A2 /* TSOLibraryTableViewController.m in Sources */,
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,
 				8E77742C1ACC2D2C00B87AE9 /* TSODownloadController.m in Sources */,
+				8EF7CCD61ADAFF5E007A4924 /* Model.xcdatamodeld in Sources */,
 				8E5D75051ACD5D64006F5564 /* TSOSimplePDFViewController.m in Sources */,
 				8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */,
 			);
@@ -518,6 +522,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8EF7CCD41ADAFF5E007A4924 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8EF7CCD51ADAFF5E007A4924 /* Model.xcdatamodel */,
+			);
+			currentVersion = 8EF7CCD51ADAFF5E007A4924 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E7773F41ACB194100B87AE9 /* Project object */;
 }
