@@ -7,15 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "TSOLibrary.h"
 #import "TSOBook.h"
 #import "Settings.h"
-#import "TSODownloadController.h"
-#import "TSOBookViewController.h"
-#import "TSOLibraryTableViewController.h"
+#import "AGTCoreDataStack.h"
+#import "TSOBooksTableViewController.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) AGTCoreDataStack *stack;
 @end
 
 @implementation AppDelegate
@@ -23,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    /*
     // Si es la primera ejecución, descargamos en JSON y lo guardamos como NSData
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     TSODownloadController *dC = [[TSODownloadController alloc] init];
@@ -63,10 +62,37 @@
         [self configureForPhoneWithModel:library];
         
     }
+    */
+    
+    self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
+    
+    // Creamos datos de prueba
+    //[self createTestData];
+    
+    // Cogemos todos los libros
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[TSOBook entityName]];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:TSOBookAttributes.title
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
+    req.fetchBatchSize = 20; // para que te los traiga en bloques de ese tamaño, más o menos el doble de lo que se va a ver
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:req
+                                                                         managedObjectContext:self.stack.context
+                                                                           sectionNameKeyPath:nil // para ordendar más adelante por tags
+                                                                                    cacheName:nil];
+    
+    TSOBooksTableViewController *booksVC = [[TSOBooksTableViewController alloc] initWithFetchedResultsController:fc
+                                                                                                           style:UITableViewStyleGrouped];
+    
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
+    
+    self.window.rootViewController = booksVC;
     
     
     [self.window makeKeyAndVisible];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -91,7 +117,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+/*
 -(TSOBook *) lastSelectedBookInModel:(TSOLibrary *) model{
     
     // Obtengo en NSUserDefaults
@@ -153,6 +179,42 @@
     self.window.rootViewController = libNav;
 
 }
+ */
+
+
+-(void) createTestData{
+    
+    // Eliminar datos anteriores
+    [self.stack zapAllData];
+    
+    [TSOBook bookWithTitle:@"Primer Libro"
+                   authors:@"Yo mismo"
+                   context:self.stack.context];
+    
+    [TSOBook bookWithTitle:@"Segundo Libro"
+                   authors:@"Yo mismo"
+                   context:self.stack.context];
+    
+    TSOBook *b3 = [TSOBook bookWithTitle:@"Tercer Libro"
+                   authors:@"Yo mismo"
+                   context:self.stack.context];
+    
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Error al guardar: %@", error);
+    }];
+    
+    NSLog(@"Libro: %@", b3);
+    
+    
+}
+
+
+
+
+
+
+
+
 
 
 @end
