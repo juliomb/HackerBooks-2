@@ -1,5 +1,8 @@
 #import "_TSOPdf.h"
 
 @interface TSOPdf : _TSOPdf {}
-// Custom logic goes here.
+
++(instancetype) pdfWithUrl: (NSString *) url
+                   context: (NSManagedObjectContext *) context;
+
 @end

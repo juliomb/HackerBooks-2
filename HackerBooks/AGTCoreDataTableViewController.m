@@ -3,7 +3,7 @@
 //  Everpobre
 //
 //  Created by Fernando Rodríguez Romero on 1/24/13.
-//  Copyright (c) 2013 Agbo. All rights reserved.
+//  Copyright (c) 2013 Fernando. All rights reserved.
 //
 
 #import "AGTCoreDataTableViewController.h"
@@ -121,6 +121,9 @@
                 
             case NSFetchedResultsChangeDelete:
                 [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+            default:
+                // other 2 changes are irrelevant in this case
                 break;
         }
     }

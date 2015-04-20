@@ -9,6 +9,7 @@
 #import "TSOBooksTableViewController.h"
 #import "TSOBookTableViewCell.h"
 #import "TSOBook.h"
+#import "Settings.h"
 
 @interface TSOBooksTableViewController ()
 
@@ -21,6 +22,13 @@
     // Do any additional setup after loading the view.
     
     self.title = @"Librería";
+    
+    
+    // Registramos el nib de la celda personalizada
+    UINib *nib = [UINib nibWithNibName:@"TSOBookTableViewCell"
+                                bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:[TSOBookTableViewCell cellId]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +60,10 @@
     }
     
     return cell;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return BOOK_CELL_HEIGHT;
 }
 
 

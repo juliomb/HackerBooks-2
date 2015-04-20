@@ -1,5 +1,9 @@
 #import "_TSOPhoto.h"
 
 @interface TSOPhoto : _TSOPhoto {}
-// Custom logic goes here.
+
++(instancetype) photoWithUrl: (NSString *) url
+                     context: (NSManagedObjectContext *) context;
+
+
 @end

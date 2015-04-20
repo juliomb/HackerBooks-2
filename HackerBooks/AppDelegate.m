@@ -11,6 +11,7 @@
 #import "Settings.h"
 #import "AGTCoreDataStack.h"
 #import "TSOBooksTableViewController.h"
+#import "TSODownloadController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AGTCoreDataStack *stack;
@@ -21,53 +22,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    /*
-    // Si es la primera ejecución, descargamos en JSON y lo guardamos como NSData
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    TSODownloadController *dC = [[TSODownloadController alloc] init];
-    
-    //[userDefaults removeObjectForKey:LAST_SELECTED_BOOK]; // OJO!!!!
-    if (![userDefaults objectForKey:LAST_SELECTED_BOOK]){
-        
-        // ponemos un valor por defecto
-        [userDefaults setObject:@[@0, @0] forKey:LAST_SELECTED_BOOK];
-        
-        // ES LA PRIMERA EJECUCION, descargamos la librería
-        // le pasamos la tarea al controlador de descargas
-        NSURL *url = [NSURL URLWithString:JSON_URL];
-        [dC downloadAndSaveJSONWithURL:url];
-        
-        // por si acaso
-        [userDefaults synchronize];
-    }
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    // Cogemos los datos de local e inicializamos la librería
-    NSArray *dictArray = [dC booksDictionaryArray];
-    TSOLibrary *library = [[TSOLibrary alloc] initWithArray:dictArray];
-
-    
-    // Detectamos el tipo de pantalla
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        
-        // Tipo tableta
-        [self configureForPadWithModel:library];
-        
-    }else{
-        
-        // Tipo teléfono
-        [self configureForPhoneWithModel:library];
-        
-    }
-    */
     
     self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
     
-    // Creamos datos de prueba
-    //[self createTestData];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    // OJO!!!!
+    [userDefaults removeObjectForKey:LAST_SELECTED_BOOK_KEY];
+    [self.stack zapAllData];
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Error al guardar: %@", error);
+    }];
     
     // Cogemos todos los libros
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[TSOBook entityName]];
@@ -85,10 +51,58 @@
     TSOBooksTableViewController *booksVC = [[TSOBooksTableViewController alloc] initWithFetchedResultsController:fc
                                                                                                            style:UITableViewStyleGrouped];
     
+    
+    
+    // Si es la primera ejecución, descargamos en JSON y lo guardamos como NSData
+    if (![userDefaults objectForKey:LAST_SELECTED_BOOK_KEY]){
+        
+        // ponemos un valor por defecto
+        // TODO: Guardar referencia de coredata
+        [userDefaults setObject:@1 forKey:LAST_SELECTED_BOOK_KEY];
+        
+        // ES LA PRIMERA EJECUCION, descargamos la librería
+        // le pasamos la tarea al controlador de descargas
+        // y lo hacemos en segundo plano
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSURL *url = [NSURL URLWithString:JSON_URL];
+            TSODownloadController *dC = [[TSODownloadController alloc] init];
+            [dC downloadAndSaveJSONWithURL:url
+                                   context:self.stack.context];
+            
+            [self.stack saveWithErrorBlock:^(NSError *error) {
+                NSLog(@"Error al guardar: %@", error);
+            }];
+            NSLog(@"Datos guardados en primera ejecución");
+        });
+
+        
+        // por si acaso
+        [userDefaults synchronize];
+    }
+    
+    /*
+    // Detectamos el tipo de pantalla
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        
+        // Tipo tableta
+        [self configureForPadWithModel:library];
+        
+    }else{
+        
+        // Tipo teléfono
+        [self configureForPhoneWithModel:library];
+        
+    }*/
+    
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
     
-    self.window.rootViewController = booksVC;
+    self.window.rootViewController = navVC;
     
+    /*
+    NSIndexPath *ip = [NSIndexPath indexPathForItem:0 inSection:0];
+    TSOBook *b = [fc objectAtIndexPath:ip];
+    NSLog(@"%@", [b title]);
+    */
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -98,11 +112,19 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Error al guardar!: %@", error);
+    }];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Error al guardar!: %@", error);
+    }];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

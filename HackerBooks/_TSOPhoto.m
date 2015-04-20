@@ -5,10 +5,12 @@
 
 const struct TSOPhotoAttributes TSOPhotoAttributes = {
 	.photoData = @"photoData",
+	.photoUrl = @"photoUrl",
 };
 
 const struct TSOPhotoRelationships TSOPhotoRelationships = {
 	.annotation = @"annotation",
+	.book = @"book",
 };
 
 @implementation TSOPhotoID
@@ -42,6 +44,8 @@ const struct TSOPhotoRelationships TSOPhotoRelationships = {
 
 @dynamic photoData;
 
+@dynamic photoUrl;
+
 @dynamic annotation;
 
 - (NSMutableSet*)annotationSet {
@@ -52,6 +56,8 @@ const struct TSOPhotoRelationships TSOPhotoRelationships = {
 	[self didAccessValueForKey:@"annotation"];
 	return result;
 }
+
+@dynamic book;
 
 @end
 

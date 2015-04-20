@@ -14,6 +14,8 @@
 		8E7774161ACB194100B87AE9 /* HackerBooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7774151ACB194100B87AE9 /* HackerBooksTests.m */; };
 		8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */; };
 		8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */; };
+		8E8E5F141AE599AC0032862D /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F131AE599AC0032862D /* AGTCoreDataTableViewController.m */; };
+		8E8E5F171AE5A2E40032862D /* TSODownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F161AE5A2E40032862D /* TSODownloadController.m */; };
 		8E9170FA1AD066F300641505 /* pdf17.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170F91AD066F300641505 /* pdf17.png */; };
 		8E9171051AD16C4A00641505 /* favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171041AD16C4A00641505 /* favorito.png */; };
 		8E9171071AD16C7F00641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171061AD16C7F00641505 /* noFavorito.png */; };
@@ -32,7 +34,6 @@
 		8EF7CCF81ADB3A90007A4924 /* TSOPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCEA1ADB3A90007A4924 /* TSOPdf.m */; };
 		8EF7CCF91ADB3A90007A4924 /* TSOPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCEC1ADB3A90007A4924 /* TSOPhoto.m */; };
 		8EF7CCFA1ADB3A90007A4924 /* TSOTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCEE1ADB3A90007A4924 /* TSOTag.m */; };
-		8EF7CCFE1ADB3B4A007A4924 /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCFD1ADB3B4A007A4924 /* AGTCoreDataTableViewController.m */; };
 		8EF7CD011ADB3B65007A4924 /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CD001ADB3B65007A4924 /* AGTCoreDataStack.m */; };
 		8EF7CD041ADB4329007A4924 /* TSOBooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CD031ADB4329007A4924 /* TSOBooksTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,10 @@
 		8E84C9F81ACF17FE006908A2 /* TSOBookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOBookTableViewCell.h; sourceTree = "<group>"; };
 		8E84C9F91ACF17FE006908A2 /* TSOBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOBookTableViewCell.m; sourceTree = "<group>"; };
 		8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSOBookTableViewCell.xib; sourceTree = "<group>"; };
+		8E8E5F121AE599AC0032862D /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
+		8E8E5F131AE599AC0032862D /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
+		8E8E5F151AE5A2E40032862D /* TSODownloadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSODownloadController.h; sourceTree = "<group>"; };
+		8E8E5F161AE5A2E40032862D /* TSODownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSODownloadController.m; sourceTree = "<group>"; };
 		8E9170F91AD066F300641505 /* pdf17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf17.png; sourceTree = "<group>"; };
 		8E9171041AD16C4A00641505 /* favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorito.png; sourceTree = "<group>"; };
 		8E9171061AD16C7F00641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
@@ -92,8 +97,6 @@
 		8EF7CCEC1ADB3A90007A4924 /* TSOPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOPhoto.m; sourceTree = "<group>"; };
 		8EF7CCED1ADB3A90007A4924 /* TSOTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOTag.h; sourceTree = "<group>"; };
 		8EF7CCEE1ADB3A90007A4924 /* TSOTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOTag.m; sourceTree = "<group>"; };
-		8EF7CCFC1ADB3B4A007A4924 /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
-		8EF7CCFD1ADB3B4A007A4924 /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
 		8EF7CCFF1ADB3B65007A4924 /* AGTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataStack.h; sourceTree = "<group>"; };
 		8EF7CD001ADB3B65007A4924 /* AGTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataStack.m; sourceTree = "<group>"; };
 		8EF7CD021ADB4329007A4924 /* TSOBooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOBooksTableViewController.h; sourceTree = "<group>"; };
@@ -121,8 +124,10 @@
 		8E5D74F41ACD506E006F5564 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8EF7CCFC1ADB3B4A007A4924 /* AGTCoreDataTableViewController.h */,
-				8EF7CCFD1ADB3B4A007A4924 /* AGTCoreDataTableViewController.m */,
+				8E8E5F151AE5A2E40032862D /* TSODownloadController.h */,
+				8E8E5F161AE5A2E40032862D /* TSODownloadController.m */,
+				8E8E5F121AE599AC0032862D /* AGTCoreDataTableViewController.h */,
+				8E8E5F131AE599AC0032862D /* AGTCoreDataTableViewController.m */,
 				8EF7CD021ADB4329007A4924 /* TSOBooksTableViewController.h */,
 				8EF7CD031ADB4329007A4924 /* TSOBooksTableViewController.m */,
 			);
@@ -152,13 +157,13 @@
 			isa = PBXGroup;
 			children = (
 				8E7774291ACC2D0900B87AE9 /* Settings.h */,
+				8E7774031ACB194100B87AE9 /* AppDelegate.h */,
+				8E7774041ACB194100B87AE9 /* AppDelegate.m */,
 				8EF7CCFF1ADB3B65007A4924 /* AGTCoreDataStack.h */,
 				8EF7CD001ADB3B65007A4924 /* AGTCoreDataStack.m */,
 				8E5D74F41ACD506E006F5564 /* Controllers */,
 				8E7774221ACB19B100B87AE9 /* Models */,
 				8E84C9FD1ACF180B006908A2 /* Views */,
-				8E7774031ACB194100B87AE9 /* AppDelegate.h */,
-				8E7774041ACB194100B87AE9 /* AppDelegate.m */,
 				8E7774061ACB194100B87AE9 /* Images.xcassets */,
 				8E7774081ACB194100B87AE9 /* LaunchScreen.xib */,
 				8E7773FF1ACB194100B87AE9 /* Supporting Files */,
@@ -362,8 +367,8 @@
 				8EF7CD011ADB3B65007A4924 /* AGTCoreDataStack.m in Sources */,
 				8EF7CCF51ADB3A90007A4924 /* TSOAnnotation.m in Sources */,
 				8E7774051ACB194100B87AE9 /* AppDelegate.m in Sources */,
-				8EF7CCFE1ADB3B4A007A4924 /* AGTCoreDataTableViewController.m in Sources */,
 				8EF7CCF11ADB3A90007A4924 /* _TSOLocalization.m in Sources */,
+				8E8E5F171AE5A2E40032862D /* TSODownloadController.m in Sources */,
 				8EF7CCF91ADB3A90007A4924 /* TSOPhoto.m in Sources */,
 				8EF7CCF61ADB3A90007A4924 /* TSOBook.m in Sources */,
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,
@@ -372,6 +377,7 @@
 				8EF7CCEF1ADB3A90007A4924 /* _TSOAnnotation.m in Sources */,
 				8EF7CCF71ADB3A90007A4924 /* TSOLocalization.m in Sources */,
 				8EF7CCF31ADB3A90007A4924 /* _TSOPhoto.m in Sources */,
+				8E8E5F141AE599AC0032862D /* AGTCoreDataTableViewController.m in Sources */,
 				8EF7CCF21ADB3A90007A4924 /* _TSOPdf.m in Sources */,
 				8EF7CCD61ADAFF5E007A4924 /* Model.xcdatamodeld in Sources */,
 				8EF7CCF81ADB3A90007A4924 /* TSOPdf.m in Sources */,

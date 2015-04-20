@@ -8,6 +8,15 @@
 
 @implementation TSOPhoto
 
-// Custom logic goes here.
++(instancetype) photoWithUrl: (NSString *) url
+                     context: (NSManagedObjectContext *) context{
+    
+    TSOPhoto *photo = [self insertInManagedObjectContext:context];
+    
+    photo.photoUrl = url;
+    
+    return photo;
+    
+}
 
 @end

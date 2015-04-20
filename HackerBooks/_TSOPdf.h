@@ -5,6 +5,7 @@
 
 extern const struct TSOPdfAttributes {
 	__unsafe_unretained NSString *pdfData;
+	__unsafe_unretained NSString *pdfUrl;
 } TSOPdfAttributes;
 
 extern const struct TSOPdfRelationships {
@@ -26,6 +27,10 @@ extern const struct TSOPdfRelationships {
 
 //- (BOOL)validatePdfData:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* pdfUrl;
+
+//- (BOOL)validatePdfUrl:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) TSOBook *book;
 
 //- (BOOL)validateBook:(id*)value_ error:(NSError**)error_;
@@ -36,6 +41,9 @@ extern const struct TSOPdfRelationships {
 
 - (NSData*)primitivePdfData;
 - (void)setPrimitivePdfData:(NSData*)value;
+
+- (NSString*)primitivePdfUrl;
+- (void)setPrimitivePdfUrl:(NSString*)value;
 
 - (TSOBook*)primitiveBook;
 - (void)setPrimitiveBook:(TSOBook*)value;

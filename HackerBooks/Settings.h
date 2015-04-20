@@ -10,7 +10,7 @@
 #define NSDATA_LIBRARY @"NSDataLibrary"
 #define IMAGE_PREFIX @"image_"
 #define PDF_PREFIX @"pdf_"
-#define LAST_SELECTED_BOOK @"lastSelectedBook"
+#define LAST_SELECTED_BOOK_KEY @"lastSelectedBook"
 #define BOOK_KEY @"bookKey"
 #define BOOK_DID_CHANGE_NOTIFICATION @"bookDidChangeNotification"
 #define BOOK_DID_DOWNLOAD_PDF @"bookDidDownloadPDF"

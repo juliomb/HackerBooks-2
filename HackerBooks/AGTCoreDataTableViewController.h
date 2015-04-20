@@ -3,7 +3,7 @@
 //  
 //
 //  Created by Fernando Rodríguez Romero on 1/24/13.
-//  Copyright (c) 2013 Agbo. All rights reserved.
+//  Copyright (c) 2013 Fernando. All rights reserved.
 //
 // This class mostly just copies the code from NSFetchedResultsController's documentation page
 //   into a subclass of UITableViewController.
@@ -17,10 +17,10 @@
 //  create a NEW NSFetchedResultsController and set this class's fetchedResultsController @property again.
 //
 
+@import Foundation;
+@import CoreData;
+@import UIKit;
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
 @interface AGTCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 

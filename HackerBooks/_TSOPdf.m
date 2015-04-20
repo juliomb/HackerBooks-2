@@ -5,6 +5,7 @@
 
 const struct TSOPdfAttributes TSOPdfAttributes = {
 	.pdfData = @"pdfData",
+	.pdfUrl = @"pdfUrl",
 };
 
 const struct TSOPdfRelationships TSOPdfRelationships = {
@@ -41,6 +42,8 @@ const struct TSOPdfRelationships TSOPdfRelationships = {
 }
 
 @dynamic pdfData;
+
+@dynamic pdfUrl;
 
 @dynamic book;
 

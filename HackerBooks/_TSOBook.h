@@ -5,19 +5,19 @@
 
 extern const struct TSOBookAttributes {
 	__unsafe_unretained NSString *authors;
-	__unsafe_unretained NSString *image;
-	__unsafe_unretained NSString *isFavourite;
 	__unsafe_unretained NSString *title;
 } TSOBookAttributes;
 
 extern const struct TSOBookRelationships {
 	__unsafe_unretained NSString *annotations;
 	__unsafe_unretained NSString *pdf;
+	__unsafe_unretained NSString *photo;
 	__unsafe_unretained NSString *tags;
 } TSOBookRelationships;
 
 @class TSOAnnotation;
 @class TSOPdf;
+@class TSOPhoto;
 @class TSOTag;
 
 @interface TSOBookID : NSManagedObjectID {}
@@ -33,18 +33,6 @@ extern const struct TSOBookRelationships {
 
 //- (BOOL)validateAuthors:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSData* image;
-
-//- (BOOL)validateImage:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSNumber* isFavourite;
-
-@property (atomic) BOOL isFavouriteValue;
-- (BOOL)isFavouriteValue;
-- (void)setIsFavouriteValue:(BOOL)value_;
-
-//- (BOOL)validateIsFavourite:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) NSString* title;
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
@@ -56,6 +44,10 @@ extern const struct TSOBookRelationships {
 @property (nonatomic, strong) TSOPdf *pdf;
 
 //- (BOOL)validatePdf:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) TSOPhoto *photo;
+
+//- (BOOL)validatePhoto:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSSet *tags;
 
@@ -84,15 +76,6 @@ extern const struct TSOBookRelationships {
 - (NSString*)primitiveAuthors;
 - (void)setPrimitiveAuthors:(NSString*)value;
 
-- (NSData*)primitiveImage;
-- (void)setPrimitiveImage:(NSData*)value;
-
-- (NSNumber*)primitiveIsFavourite;
-- (void)setPrimitiveIsFavourite:(NSNumber*)value;
-
-- (BOOL)primitiveIsFavouriteValue;
-- (void)setPrimitiveIsFavouriteValue:(BOOL)value_;
-
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
 
@@ -101,6 +84,9 @@ extern const struct TSOBookRelationships {
 
 - (TSOPdf*)primitivePdf;
 - (void)setPrimitivePdf:(TSOPdf*)value;
+
+- (TSOPhoto*)primitivePhoto;
+- (void)setPrimitivePhoto:(TSOPhoto*)value;
 
 - (NSMutableSet*)primitiveTags;
 - (void)setPrimitiveTags:(NSMutableSet*)value;

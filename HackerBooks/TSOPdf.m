@@ -8,6 +8,14 @@
 
 @implementation TSOPdf
 
-// Custom logic goes here.
++(instancetype) pdfWithUrl: (NSString *) url
+                   context: (NSManagedObjectContext *) context{
+    
+    TSOPdf *pdf = [TSOPdf insertInManagedObjectContext:context];
+    pdf.pdfUrl = url;
+    
+    return pdf;
+    
+}
 
 @end

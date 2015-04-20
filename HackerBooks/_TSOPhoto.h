@@ -5,13 +5,16 @@
 
 extern const struct TSOPhotoAttributes {
 	__unsafe_unretained NSString *photoData;
+	__unsafe_unretained NSString *photoUrl;
 } TSOPhotoAttributes;
 
 extern const struct TSOPhotoRelationships {
 	__unsafe_unretained NSString *annotation;
+	__unsafe_unretained NSString *book;
 } TSOPhotoRelationships;
 
 @class TSOAnnotation;
+@class TSOBook;
 
 @interface TSOPhotoID : NSManagedObjectID {}
 @end
@@ -26,9 +29,17 @@ extern const struct TSOPhotoRelationships {
 
 //- (BOOL)validatePhotoData:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* photoUrl;
+
+//- (BOOL)validatePhotoUrl:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSSet *annotation;
 
 - (NSMutableSet*)annotationSet;
+
+@property (nonatomic, strong) TSOBook *book;
+
+//- (BOOL)validateBook:(id*)value_ error:(NSError**)error_;
 
 @end
 
@@ -45,7 +56,13 @@ extern const struct TSOPhotoRelationships {
 - (NSData*)primitivePhotoData;
 - (void)setPrimitivePhotoData:(NSData*)value;
 
+- (NSString*)primitivePhotoUrl;
+- (void)setPrimitivePhotoUrl:(NSString*)value;
+
 - (NSMutableSet*)primitiveAnnotation;
 - (void)setPrimitiveAnnotation:(NSMutableSet*)value;
+
+- (TSOBook*)primitiveBook;
+- (void)setPrimitiveBook:(TSOBook*)value;
 
 @end
