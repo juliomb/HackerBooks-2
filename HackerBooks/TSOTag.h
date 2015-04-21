@@ -1,5 +1,9 @@
 #import "_TSOTag.h"
 
 @interface TSOTag : _TSOTag {}
-// Custom logic goes here.
+
++(instancetype) tagWithText:(NSString *) text
+                       book:(TSOBook *) book
+                    context:(NSManagedObjectContext *) context;
+
 @end

@@ -9,7 +9,9 @@
 #import "TSOBooksTableViewController.h"
 #import "TSOBookTableViewCell.h"
 #import "TSOBook.h"
+#import "TSOPdf.h"
 #import "Settings.h"
+#import "TSOTag.h"
 
 @interface TSOBooksTableViewController ()
 
@@ -49,11 +51,11 @@
     
     // Configuramos la celda
     cell.titleLabel.text = book.title;
-    cell.authorsLabel.text = book.authors;
+    cell.authorsLabel.text = [NSString stringWithFormat:@"%d", book.tags.count];
     //cell.bookIcon.image = [UIImage imageWithData:[book imageData]]; TODO
     
     // si tenemos el pdf en local le quitamos la transparencia al icono
-    if (book.pdf){
+    if (book.pdf.pdfData){
         cell.downloadIcon.alpha = 1;
     }else{
         cell.downloadIcon.alpha = 0.3f;

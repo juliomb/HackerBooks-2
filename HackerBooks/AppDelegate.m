@@ -12,6 +12,7 @@
 #import "AGTCoreDataStack.h"
 #import "TSOBooksTableViewController.h"
 #import "TSODownloadController.h"
+#import "LoadingViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) AGTCoreDataStack *stack;
@@ -28,33 +29,24 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
+    
+    /*
     // OJO!!!!
     [userDefaults removeObjectForKey:LAST_SELECTED_BOOK_KEY];
     [self.stack zapAllData];
     [self.stack saveWithErrorBlock:^(NSError *error) {
         NSLog(@"Error al guardar: %@", error);
     }];
-    
-    // Cogemos todos los libros
-    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[TSOBook entityName]];
-    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:TSOBookAttributes.title
-                                                          ascending:YES
-                                                           selector:@selector(caseInsensitiveCompare:)]];
-    req.fetchBatchSize = 20; // para que te los traiga en bloques de ese tamaño, más o menos el doble de lo que se va a ver
-    
-    // FetchedResultsController
-    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:req
-                                                                         managedObjectContext:self.stack.context
-                                                                           sectionNameKeyPath:nil // para ordendar más adelante por tags
-                                                                                    cacheName:nil];
-    
-    TSOBooksTableViewController *booksVC = [[TSOBooksTableViewController alloc] initWithFetchedResultsController:fc
-                                                                                                           style:UITableViewStyleGrouped];
+    */
     
     
     
     // Si es la primera ejecución, descargamos en JSON y lo guardamos como NSData
     if (![userDefaults objectForKey:LAST_SELECTED_BOOK_KEY]){
+        
+        // Ponemos el VC de cargando
+        LoadingViewController *loadingVC = [[LoadingViewController alloc] init];
+        self.window.rootViewController = loadingVC;
         
         // ponemos un valor por defecto
         // TODO: Guardar referencia de coredata
@@ -64,6 +56,7 @@
         // le pasamos la tarea al controlador de descargas
         // y lo hacemos en segundo plano
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
             NSURL *url = [NSURL URLWithString:JSON_URL];
             TSODownloadController *dC = [[TSODownloadController alloc] init];
             [dC downloadAndSaveJSONWithURL:url
@@ -73,11 +66,26 @@
                 NSLog(@"Error al guardar: %@", error);
             }];
             NSLog(@"Datos guardados en primera ejecución");
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                // De vuelta en el hilo principal
+                [self loadBooksTable];
+            
+            });
+            
         });
 
         
         // por si acaso
         [userDefaults synchronize];
+        
+        
+    } else{
+        
+        // Ejecución normal
+        [self loadBooksTable];
+
     }
     
     /*
@@ -94,9 +102,7 @@
         
     }*/
     
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
     
-    self.window.rootViewController = navVC;
     
     /*
     NSIndexPath *ip = [NSIndexPath indexPathForItem:0 inSection:0];
@@ -232,7 +238,29 @@
 
 
 
-
+-(void) loadBooksTable{
+    
+    // Cogemos todos los libros
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[TSOBook entityName]];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:TSOBookAttributes.title
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
+    req.fetchBatchSize = 20; // para que te los traiga en bloques de ese tamaño, más o menos el doble de lo que se va a ver
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:req
+                                                                         managedObjectContext:self.stack.context
+                                                                           sectionNameKeyPath:nil // para ordendar más adelante por tags
+                                                                                    cacheName:nil];
+    
+    TSOBooksTableViewController *booksVC = [[TSOBooksTableViewController alloc] initWithFetchedResultsController:fc
+                                                                              style:UITableViewStyleGrouped];
+    
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
+    
+    self.window.rootViewController = navVC;
+    
+}
 
 
 

@@ -9,6 +9,7 @@
 #import "TSODownloadController.h"
 #import "Settings.h"
 #import "TSOBook.h"
+#import "TSOTag.h"
 
 @implementation TSODownloadController
 
@@ -40,6 +41,8 @@
                 
             }
             
+            // Agregamos el Tag Favoritos
+            [TSOTag tagWithText:@"favoritos" book:nil context:context];
             
         }else{
             NSLog(@"No nos hemos descargado un array, si no un diccionario");

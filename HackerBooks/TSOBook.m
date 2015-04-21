@@ -1,6 +1,7 @@
 #import "TSOBook.h"
 #import "TSOPhoto.h"
 #import "TSOPdf.h"
+#import "TSOTag.h"
 
 @interface TSOBook ()
 
@@ -40,6 +41,18 @@
     // Hacemos lo mismo con el pdf
     book.pdf = [TSOPdf pdfWithUrl:[dictionary objectForKey:@"pdf_url"]
                           context:context];
+    
+    
+    // Tags
+    NSArray *tags = [[dictionary objectForKey:@"tags"] componentsSeparatedByString:@", "];
+    for (NSString *tag in tags){
+        
+        // Los vamos añadiendo si no existen
+        [TSOTag tagWithText:tag
+                       book:book
+                    context:context];
+        
+    }
     
     return book;
 }

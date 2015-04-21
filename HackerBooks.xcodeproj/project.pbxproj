@@ -16,6 +16,8 @@
 		8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */; };
 		8E8E5F141AE599AC0032862D /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F131AE599AC0032862D /* AGTCoreDataTableViewController.m */; };
 		8E8E5F171AE5A2E40032862D /* TSODownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F161AE5A2E40032862D /* TSODownloadController.m */; };
+		8E8E5F1B1AE65B5C0032862D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F191AE65B5C0032862D /* LoadingViewController.m */; };
+		8E8E5F1C1AE65B5C0032862D /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F1A1AE65B5C0032862D /* LoadingViewController.xib */; };
 		8E9170FA1AD066F300641505 /* pdf17.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170F91AD066F300641505 /* pdf17.png */; };
 		8E9171051AD16C4A00641505 /* favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171041AD16C4A00641505 /* favorito.png */; };
 		8E9171071AD16C7F00641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171061AD16C7F00641505 /* noFavorito.png */; };
@@ -67,6 +69,9 @@
 		8E8E5F131AE599AC0032862D /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
 		8E8E5F151AE5A2E40032862D /* TSODownloadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSODownloadController.h; sourceTree = "<group>"; };
 		8E8E5F161AE5A2E40032862D /* TSODownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSODownloadController.m; sourceTree = "<group>"; };
+		8E8E5F181AE65B5C0032862D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		8E8E5F191AE65B5C0032862D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		8E8E5F1A1AE65B5C0032862D /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		8E9170F91AD066F300641505 /* pdf17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf17.png; sourceTree = "<group>"; };
 		8E9171041AD16C4A00641505 /* favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorito.png; sourceTree = "<group>"; };
 		8E9171061AD16C7F00641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 				8E7774041ACB194100B87AE9 /* AppDelegate.m */,
 				8EF7CCFF1ADB3B65007A4924 /* AGTCoreDataStack.h */,
 				8EF7CD001ADB3B65007A4924 /* AGTCoreDataStack.m */,
+				8E8E5F1D1AE65B670032862D /* Loading */,
 				8E5D74F41ACD506E006F5564 /* Controllers */,
 				8E7774221ACB19B100B87AE9 /* Models */,
 				8E84C9FD1ACF180B006908A2 /* Views */,
@@ -226,6 +232,16 @@
 				8E84C9FA1ACF17FE006908A2 /* TSOBookTableViewCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		8E8E5F1D1AE65B670032862D /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				8E8E5F181AE65B5C0032862D /* LoadingViewController.h */,
+				8E8E5F191AE65B5C0032862D /* LoadingViewController.m */,
+				8E8E5F1A1AE65B5C0032862D /* LoadingViewController.xib */,
+			);
+			name = Loading;
 			sourceTree = "<group>";
 		};
 		8E9170FB1AD066FB00641505 /* Resources */ = {
@@ -339,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E8E5F1C1AE65B5C0032862D /* LoadingViewController.xib in Resources */,
 				8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */,
 				8E9171131AD173D200641505 /* icon.png in Resources */,
 				8E9171071AD16C7F00641505 /* noFavorito.png in Resources */,
@@ -374,6 +391,7 @@
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,
 				8EF7CCF41ADB3A90007A4924 /* _TSOTag.m in Sources */,
 				8EF7CD041ADB4329007A4924 /* TSOBooksTableViewController.m in Sources */,
+				8E8E5F1B1AE65B5C0032862D /* LoadingViewController.m in Sources */,
 				8EF7CCEF1ADB3A90007A4924 /* _TSOAnnotation.m in Sources */,
 				8EF7CCF71ADB3A90007A4924 /* TSOLocalization.m in Sources */,
 				8EF7CCF31ADB3A90007A4924 /* _TSOPhoto.m in Sources */,
