@@ -18,6 +18,13 @@
 		8E8E5F171AE5A2E40032862D /* TSODownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F161AE5A2E40032862D /* TSODownloadController.m */; };
 		8E8E5F1B1AE65B5C0032862D /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F191AE65B5C0032862D /* LoadingViewController.m */; };
 		8E8E5F1C1AE65B5C0032862D /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F1A1AE65B5C0032862D /* LoadingViewController.xib */; };
+		8E8E5F1F1AE6B2D10032862D /* default-book-large.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F1E1AE6B2D10032862D /* default-book-large.gif */; };
+		8E8E5F231AE6B3D10032862D /* TSOBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F211AE6B3D10032862D /* TSOBookViewController.m */; };
+		8E8E5F241AE6B3D10032862D /* TSOBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F221AE6B3D10032862D /* TSOBookViewController.xib */; };
+		8E8E5F281AE6B4520032862D /* TSOSimplePDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F261AE6B4520032862D /* TSOSimplePDFViewController.m */; };
+		8E8E5F291AE6B4520032862D /* TSOSimplePDFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F271AE6B4520032862D /* TSOSimplePDFViewController.xib */; };
+		8E8E5F2B1AE6B7870032862D /* Book_Cover_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F2A1AE6B7870032862D /* Book_Cover_8.jpg */; };
+		8E8E5F2E1AE6CD430032862D /* TSOAnnotationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F2D1AE6CD430032862D /* TSOAnnotationsTableViewController.m */; };
 		8E9170FA1AD066F300641505 /* pdf17.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170F91AD066F300641505 /* pdf17.png */; };
 		8E9171051AD16C4A00641505 /* favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171041AD16C4A00641505 /* favorito.png */; };
 		8E9171071AD16C7F00641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171061AD16C7F00641505 /* noFavorito.png */; };
@@ -72,6 +79,16 @@
 		8E8E5F181AE65B5C0032862D /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		8E8E5F191AE65B5C0032862D /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		8E8E5F1A1AE65B5C0032862D /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		8E8E5F1E1AE6B2D10032862D /* default-book-large.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "default-book-large.gif"; sourceTree = "<group>"; };
+		8E8E5F201AE6B3D10032862D /* TSOBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOBookViewController.h; sourceTree = "<group>"; };
+		8E8E5F211AE6B3D10032862D /* TSOBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOBookViewController.m; sourceTree = "<group>"; };
+		8E8E5F221AE6B3D10032862D /* TSOBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSOBookViewController.xib; sourceTree = "<group>"; };
+		8E8E5F251AE6B4520032862D /* TSOSimplePDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOSimplePDFViewController.h; sourceTree = "<group>"; };
+		8E8E5F261AE6B4520032862D /* TSOSimplePDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOSimplePDFViewController.m; sourceTree = "<group>"; };
+		8E8E5F271AE6B4520032862D /* TSOSimplePDFViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSOSimplePDFViewController.xib; sourceTree = "<group>"; };
+		8E8E5F2A1AE6B7870032862D /* Book_Cover_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Book_Cover_8.jpg; sourceTree = "<group>"; };
+		8E8E5F2C1AE6CD430032862D /* TSOAnnotationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOAnnotationsTableViewController.h; sourceTree = "<group>"; };
+		8E8E5F2D1AE6CD430032862D /* TSOAnnotationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOAnnotationsTableViewController.m; sourceTree = "<group>"; };
 		8E9170F91AD066F300641505 /* pdf17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf17.png; sourceTree = "<group>"; };
 		8E9171041AD16C4A00641505 /* favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorito.png; sourceTree = "<group>"; };
 		8E9171061AD16C7F00641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
@@ -129,12 +146,20 @@
 		8E5D74F41ACD506E006F5564 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8E8E5F251AE6B4520032862D /* TSOSimplePDFViewController.h */,
+				8E8E5F261AE6B4520032862D /* TSOSimplePDFViewController.m */,
+				8E8E5F271AE6B4520032862D /* TSOSimplePDFViewController.xib */,
+				8E8E5F201AE6B3D10032862D /* TSOBookViewController.h */,
+				8E8E5F211AE6B3D10032862D /* TSOBookViewController.m */,
+				8E8E5F221AE6B3D10032862D /* TSOBookViewController.xib */,
 				8E8E5F151AE5A2E40032862D /* TSODownloadController.h */,
 				8E8E5F161AE5A2E40032862D /* TSODownloadController.m */,
 				8E8E5F121AE599AC0032862D /* AGTCoreDataTableViewController.h */,
 				8E8E5F131AE599AC0032862D /* AGTCoreDataTableViewController.m */,
 				8EF7CD021ADB4329007A4924 /* TSOBooksTableViewController.h */,
 				8EF7CD031ADB4329007A4924 /* TSOBooksTableViewController.m */,
+				8E8E5F2C1AE6CD430032862D /* TSOAnnotationsTableViewController.h */,
+				8E8E5F2D1AE6CD430032862D /* TSOAnnotationsTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -247,11 +272,13 @@
 		8E9170FB1AD066FB00641505 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E8E5F1E1AE6B2D10032862D /* default-book-large.gif */,
 				8E9171121AD173D200641505 /* icon.png */,
 				8E9170F91AD066F300641505 /* pdf17.png */,
 				8E9171041AD16C4A00641505 /* favorito.png */,
 				8E9171061AD16C7F00641505 /* noFavorito.png */,
 				8E9171081AD16F6E00641505 /* launch.jpg */,
+				8E8E5F2A1AE6B7870032862D /* Book_Cover_8.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -359,11 +386,15 @@
 				8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */,
 				8E9171131AD173D200641505 /* icon.png in Resources */,
 				8E9171071AD16C7F00641505 /* noFavorito.png in Resources */,
+				8E8E5F291AE6B4520032862D /* TSOSimplePDFViewController.xib in Resources */,
 				8E9170FA1AD066F300641505 /* pdf17.png in Resources */,
+				8E8E5F2B1AE6B7870032862D /* Book_Cover_8.jpg in Resources */,
 				8E9171051AD16C4A00641505 /* favorito.png in Resources */,
+				8E8E5F241AE6B3D10032862D /* TSOBookViewController.xib in Resources */,
 				8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */,
 				8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */,
 				8E9171091AD16F6E00641505 /* launch.jpg in Resources */,
+				8E8E5F1F1AE6B2D10032862D /* default-book-large.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,11 +412,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E8E5F231AE6B3D10032862D /* TSOBookViewController.m in Sources */,
+				8E8E5F2E1AE6CD430032862D /* TSOAnnotationsTableViewController.m in Sources */,
 				8EF7CD011ADB3B65007A4924 /* AGTCoreDataStack.m in Sources */,
 				8EF7CCF51ADB3A90007A4924 /* TSOAnnotation.m in Sources */,
 				8E7774051ACB194100B87AE9 /* AppDelegate.m in Sources */,
 				8EF7CCF11ADB3A90007A4924 /* _TSOLocalization.m in Sources */,
 				8E8E5F171AE5A2E40032862D /* TSODownloadController.m in Sources */,
+				8E8E5F281AE6B4520032862D /* TSOSimplePDFViewController.m in Sources */,
 				8EF7CCF91ADB3A90007A4924 /* TSOPhoto.m in Sources */,
 				8EF7CCF61ADB3A90007A4924 /* TSOBook.m in Sources */,
 				8E7774021ACB194100B87AE9 /* main.m in Sources */,

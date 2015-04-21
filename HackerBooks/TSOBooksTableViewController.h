@@ -10,4 +10,6 @@
 
 @interface TSOBooksTableViewController : AGTCoreDataTableViewController
 
+@property (strong, nonatomic) NSArray *sortedArray;
+
 @end

@@ -42,7 +42,7 @@
             }
             
             // Agregamos el Tag Favoritos
-            [TSOTag tagWithText:@"favoritos" book:nil context:context];
+            [TSOTag tagWithText:FAVOURITE_TAG book:nil context:context];
             
         }else{
             NSLog(@"No nos hemos descargado un array, si no un diccionario");

@@ -1,4 +1,5 @@
 #import "TSOTag.h"
+#import "Settings.h"
 
 @interface TSOTag ()
 
@@ -63,5 +64,23 @@
     return nil;
 }
 
+
+
+#pragma mark - Comparison
+- (NSComparisonResult)compare:(TSOTag *)other{
+    
+    /* favorite always comes first */
+    static NSString *fav = FAVOURITE_TAG;
+    
+    if ([[self text] isEqualToString:[other text]]) {
+        return NSOrderedSame;
+    }else if ([[self text] isEqualToString:fav]){
+        return NSOrderedAscending;
+    }else if ([[other text] isEqualToString:fav]){
+        return NSOrderedDescending;
+    }else{
+        return [self.text compare:other.text];
+    }
+}
 
 @end

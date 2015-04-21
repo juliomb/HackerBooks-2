@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TSOBook.h"
+#import "TSOTag.h"
 #import "Settings.h"
 #import "AGTCoreDataStack.h"
 #import "TSOBooksTableViewController.h"
@@ -239,29 +240,35 @@
 
 
 -(void) loadBooksTable{
-    
+    /*
     // Cogemos todos los libros
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[TSOBook entityName]];
     req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:TSOBookAttributes.title
                                                           ascending:YES
                                                            selector:@selector(caseInsensitiveCompare:)]];
+    */
+    // Cogemos los tags ordenados
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[TSOTag entityName]];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:TSOTagAttributes.text
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
+    
     req.fetchBatchSize = 20; // para que te los traiga en bloques de ese tamaño, más o menos el doble de lo que se va a ver
     
     // FetchedResultsController
     NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:req
                                                                          managedObjectContext:self.stack.context
-                                                                           sectionNameKeyPath:nil // para ordendar más adelante por tags
+                                                                           sectionNameKeyPath:TSOTagAttributes.text
                                                                                     cacheName:nil];
     
     TSOBooksTableViewController *booksVC = [[TSOBooksTableViewController alloc] initWithFetchedResultsController:fc
                                                                               style:UITableViewStyleGrouped];
     
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:booksVC];
-    
+
     self.window.rootViewController = navVC;
     
 }
-
 
 
 

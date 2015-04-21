@@ -6,4 +6,6 @@
                        book:(TSOBook *) book
                     context:(NSManagedObjectContext *) context;
 
+- (NSComparisonResult)compare:(TSOTag *)tag;
+
 @end
