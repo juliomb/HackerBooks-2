@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 TimpleSoft. All rights reserved.
 //
 
+@class TSOBook;
 #import "AGTCoreDataTableViewController.h"
 
 @interface TSOAnnotationsTableViewController : AGTCoreDataTableViewController
+
+-(id) initWithFetchedResultsController:(NSFetchedResultsController *)aFetchedResultsController
+                                 style:(UITableViewStyle)aStyle
+                                  book:(TSOBook *)aBook;
 
 @end

@@ -1,5 +1,10 @@
 #import "_TSOAnnotation.h"
 
 @interface TSOAnnotation : _TSOAnnotation {}
-// Custom logic goes here.
+
++(instancetype) annotationWith:(NSString *) name
+                          book:(TSOBook *) notebook
+                       context:(NSManagedObjectContext *) context;
+
+
 @end

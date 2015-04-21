@@ -12,6 +12,8 @@
 #import "TSOSimplePDFViewController.h"
 #import "TSOPhoto.h"
 #import "TSOTag.h"
+#import "TSOAnnotation.h"
+#import "TSOAnnotationsTableViewController.h"
 
 @interface TSOBookViewController ()
 
@@ -92,6 +94,33 @@
     
     self.tagsLabel.text = [self.model stringWithTags];
     
+    
+}
+
+- (IBAction)viewAnnotations:(id)sender {
+    
+    // Un fetchRequest
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[TSOAnnotation entityName]];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:TSOAnnotationAttributes.modificationDate
+                                                          ascending:NO]];
+    req.fetchBatchSize = 20;
+    
+    req.predicate = [NSPredicate predicateWithFormat:@"book = %@", self.model];
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc] initWithFetchRequest:req
+                                                                         managedObjectContext:self.model.managedObjectContext
+                                                                           sectionNameKeyPath:nil
+                                                                                    cacheName:nil];
+    
+    
+    // Crear un controlador de notas
+    TSOAnnotationsTableViewController *annotationsVC = [[TSOAnnotationsTableViewController alloc]
+                                                        initWithFetchedResultsController:fc
+                                                        style:UITableViewStyleGrouped
+                                                        book:self.model];
+    // Hacer un push
+    [self.navigationController pushViewController:annotationsVC animated:YES];
     
 }
 

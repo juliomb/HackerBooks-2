@@ -25,6 +25,10 @@
 		8E8E5F291AE6B4520032862D /* TSOSimplePDFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F271AE6B4520032862D /* TSOSimplePDFViewController.xib */; };
 		8E8E5F2B1AE6B7870032862D /* Book_Cover_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F2A1AE6B7870032862D /* Book_Cover_8.jpg */; };
 		8E8E5F2E1AE6CD430032862D /* TSOAnnotationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F2D1AE6CD430032862D /* TSOAnnotationsTableViewController.m */; };
+		8E8E5F371AE6EED90032862D /* TSOAnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E5F351AE6EED90032862D /* TSOAnnotationViewController.m */; };
+		8E8E5F381AE6EED90032862D /* TSOAnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F361AE6EED90032862D /* TSOAnnotationViewController.xib */; };
+		8E8E5F3A1AE6F3480032862D /* No-image-available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F391AE6F3480032862D /* No-image-available.jpg */; };
+		8E8E5F3C1AE6F6D20032862D /* nophoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E5F3B1AE6F6D10032862D /* nophoto.jpg */; };
 		8E9170FA1AD066F300641505 /* pdf17.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9170F91AD066F300641505 /* pdf17.png */; };
 		8E9171051AD16C4A00641505 /* favorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171041AD16C4A00641505 /* favorito.png */; };
 		8E9171071AD16C7F00641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171061AD16C7F00641505 /* noFavorito.png */; };
@@ -89,6 +93,11 @@
 		8E8E5F2A1AE6B7870032862D /* Book_Cover_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Book_Cover_8.jpg; sourceTree = "<group>"; };
 		8E8E5F2C1AE6CD430032862D /* TSOAnnotationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOAnnotationsTableViewController.h; sourceTree = "<group>"; };
 		8E8E5F2D1AE6CD430032862D /* TSOAnnotationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOAnnotationsTableViewController.m; sourceTree = "<group>"; };
+		8E8E5F341AE6EED90032862D /* TSOAnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSOAnnotationViewController.h; path = ../TSOAnnotationViewController.h; sourceTree = "<group>"; };
+		8E8E5F351AE6EED90032862D /* TSOAnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSOAnnotationViewController.m; path = ../TSOAnnotationViewController.m; sourceTree = "<group>"; };
+		8E8E5F361AE6EED90032862D /* TSOAnnotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TSOAnnotationViewController.xib; path = ../TSOAnnotationViewController.xib; sourceTree = "<group>"; };
+		8E8E5F391AE6F3480032862D /* No-image-available.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "No-image-available.jpg"; sourceTree = "<group>"; };
+		8E8E5F3B1AE6F6D10032862D /* nophoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nophoto.jpg; sourceTree = "<group>"; };
 		8E9170F91AD066F300641505 /* pdf17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf17.png; sourceTree = "<group>"; };
 		8E9171041AD16C4A00641505 /* favorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorito.png; sourceTree = "<group>"; };
 		8E9171061AD16C7F00641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
@@ -160,6 +169,9 @@
 				8EF7CD031ADB4329007A4924 /* TSOBooksTableViewController.m */,
 				8E8E5F2C1AE6CD430032862D /* TSOAnnotationsTableViewController.h */,
 				8E8E5F2D1AE6CD430032862D /* TSOAnnotationsTableViewController.m */,
+				8E8E5F341AE6EED90032862D /* TSOAnnotationViewController.h */,
+				8E8E5F351AE6EED90032862D /* TSOAnnotationViewController.m */,
+				8E8E5F361AE6EED90032862D /* TSOAnnotationViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -272,9 +284,11 @@
 		8E9170FB1AD066FB00641505 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E8E5F391AE6F3480032862D /* No-image-available.jpg */,
 				8E8E5F1E1AE6B2D10032862D /* default-book-large.gif */,
 				8E9171121AD173D200641505 /* icon.png */,
 				8E9170F91AD066F300641505 /* pdf17.png */,
+				8E8E5F3B1AE6F6D10032862D /* nophoto.jpg */,
 				8E9171041AD16C4A00641505 /* favorito.png */,
 				8E9171061AD16C7F00641505 /* noFavorito.png */,
 				8E9171081AD16F6E00641505 /* launch.jpg */,
@@ -383,7 +397,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8E5F1C1AE65B5C0032862D /* LoadingViewController.xib in Resources */,
+				8E8E5F3C1AE6F6D20032862D /* nophoto.jpg in Resources */,
 				8E84C9FC1ACF17FE006908A2 /* TSOBookTableViewCell.xib in Resources */,
+				8E8E5F381AE6EED90032862D /* TSOAnnotationViewController.xib in Resources */,
 				8E9171131AD173D200641505 /* icon.png in Resources */,
 				8E9171071AD16C7F00641505 /* noFavorito.png in Resources */,
 				8E8E5F291AE6B4520032862D /* TSOSimplePDFViewController.xib in Resources */,
@@ -393,6 +409,7 @@
 				8E8E5F241AE6B3D10032862D /* TSOBookViewController.xib in Resources */,
 				8E77740A1ACB194100B87AE9 /* LaunchScreen.xib in Resources */,
 				8E7774071ACB194100B87AE9 /* Images.xcassets in Resources */,
+				8E8E5F3A1AE6F3480032862D /* No-image-available.jpg in Resources */,
 				8E9171091AD16F6E00641505 /* launch.jpg in Resources */,
 				8E8E5F1F1AE6B2D10032862D /* default-book-large.gif in Resources */,
 			);
@@ -415,6 +432,7 @@
 				8E8E5F231AE6B3D10032862D /* TSOBookViewController.m in Sources */,
 				8E8E5F2E1AE6CD430032862D /* TSOAnnotationsTableViewController.m in Sources */,
 				8EF7CD011ADB3B65007A4924 /* AGTCoreDataStack.m in Sources */,
+				8E8E5F371AE6EED90032862D /* TSOAnnotationViewController.m in Sources */,
 				8EF7CCF51ADB3A90007A4924 /* TSOAnnotation.m in Sources */,
 				8E7774051ACB194100B87AE9 /* AppDelegate.m in Sources */,
 				8EF7CCF11ADB3A90007A4924 /* _TSOLocalization.m in Sources */,

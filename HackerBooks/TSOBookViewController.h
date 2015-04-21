@@ -22,6 +22,8 @@
 
 - (IBAction)readPDF:(id)sender;
 - (IBAction)setFavorite:(id)sender;
+- (IBAction)viewAnnotations:(id)sender;
+
 
 -(id)initWithModel:(TSOBook *) model;
 

@@ -34,7 +34,11 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="a6g-4e-UWT"/>
-                        <barButtonItem systemItem="compose" id="08e-qj-KyL"/>
+                        <barButtonItem systemItem="compose" id="08e-qj-KyL">
+                            <connections>
+                                <action selector="viewAnnotations:" destination="-1" id="miN-MX-fFt"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="UgK-As-2Kd"/>
                         <barButtonItem title="PDF" id="rv6-Bh-csI">
                             <connections>
