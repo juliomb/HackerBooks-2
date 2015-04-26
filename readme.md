@@ -9,9 +9,9 @@
 Lector de libros en PDF para iPhone/iPad.
 
 ## Comentarios
-Implementado sólo la parte esencial. Probar en simulador de iPhone 5, no he podido preocuparme de adaptar la interfaz a todos los dispositivos.
+Implementado sólo la parte esencial y las localizaciones. No he podido preocuparme de adaptar la interfaz a todos los dispositivos.
 
-No he conseguido hacer funcionar bien el mecanismo para actualizar la tabla automáticamente al seleccionar un libro como favorito, el planteamiento del FetchedResultController está mal y da errores al modificar el modelo.
+No he conseguido hacer funcionar bien el mecanismo para actualizar bien la tabla automáticamente al seleccionar un libro como favorito, a la espera de la solución publicada en el minigroup.
 
 Como en la práctica de fundamentos conseguí hacerlo funcionar todo (app universal, notificaciones, estética en todos los dispositivos, etc.), en esta me he centrado en las funcionalidades nuevas vistas en el curso.
 
