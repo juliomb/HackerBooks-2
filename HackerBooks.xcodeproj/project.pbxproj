@@ -34,6 +34,8 @@
 		8E9171071AD16C7F00641505 /* noFavorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171061AD16C7F00641505 /* noFavorito.png */; };
 		8E9171091AD16F6E00641505 /* launch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171081AD16F6E00641505 /* launch.jpg */; };
 		8E9171131AD173D200641505 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E9171121AD173D200641505 /* icon.png */; };
+		8EB80D661AED63AB005DF145 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB80D651AED63AB005DF145 /* MapKit.framework */; };
+		8EB80D691AED93E0005DF145 /* TSOHackerBooksBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB80D681AED93E0005DF145 /* TSOHackerBooksBaseClass.m */; };
 		8EF7CCD61ADAFF5E007A4924 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCD41ADAFF5E007A4924 /* Model.xcdatamodeld */; };
 		8EF7CCEF1ADB3A90007A4924 /* _TSOAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCD81ADB3A90007A4924 /* _TSOAnnotation.m */; };
 		8EF7CCF01ADB3A90007A4924 /* _TSOBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7CCDA1ADB3A90007A4924 /* _TSOBook.m */; };
@@ -103,6 +105,9 @@
 		8E9171061AD16C7F00641505 /* noFavorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noFavorito.png; sourceTree = "<group>"; };
 		8E9171081AD16F6E00641505 /* launch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.jpg; sourceTree = "<group>"; };
 		8E9171121AD173D200641505 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8EB80D651AED63AB005DF145 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8EB80D671AED93E0005DF145 /* TSOHackerBooksBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSOHackerBooksBaseClass.h; sourceTree = "<group>"; };
+		8EB80D681AED93E0005DF145 /* TSOHackerBooksBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSOHackerBooksBaseClass.m; sourceTree = "<group>"; };
 		8EF7CCD51ADAFF5E007A4924 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8EF7CCD71ADB3A90007A4924 /* _TSOAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TSOAnnotation.h; sourceTree = "<group>"; };
 		8EF7CCD81ADB3A90007A4924 /* _TSOAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TSOAnnotation.m; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB80D661AED63AB005DF145 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +185,7 @@
 		8E7773F31ACB194100B87AE9 = {
 			isa = PBXGroup;
 			children = (
+				8EB80D651AED63AB005DF145 /* MapKit.framework */,
 				8E9170FB1AD066FB00641505 /* Resources */,
 				8E7773FE1ACB194100B87AE9 /* HackerBooks */,
 				8E7774121ACB194100B87AE9 /* HackerBooksTests */,
@@ -256,6 +263,8 @@
 				8EF7CCEC1ADB3A90007A4924 /* TSOPhoto.m */,
 				8EF7CCED1ADB3A90007A4924 /* TSOTag.h */,
 				8EF7CCEE1ADB3A90007A4924 /* TSOTag.m */,
+				8EB80D671AED93E0005DF145 /* TSOHackerBooksBaseClass.h */,
+				8EB80D681AED93E0005DF145 /* TSOHackerBooksBaseClass.m */,
 				8EF7CCD41ADAFF5E007A4924 /* Model.xcdatamodeld */,
 			);
 			name = Models;
@@ -365,6 +374,11 @@
 				TargetAttributes = {
 					8E7773FB1ACB194100B87AE9 = {
 						CreatedOnToolsVersion = 6.2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					8E77740E1ACB194100B87AE9 = {
 						CreatedOnToolsVersion = 6.2;
@@ -454,6 +468,7 @@
 				8EF7CCFA1ADB3A90007A4924 /* TSOTag.m in Sources */,
 				8E84C9FB1ACF17FE006908A2 /* TSOBookTableViewCell.m in Sources */,
 				8EF7CCF01ADB3A90007A4924 /* _TSOBook.m in Sources */,
+				8EB80D691AED93E0005DF145 /* TSOHackerBooksBaseClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

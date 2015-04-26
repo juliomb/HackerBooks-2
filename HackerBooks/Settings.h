@@ -17,3 +17,5 @@
 #define BOOK_CELL_HEIGHT 80
 #define FAVOURITE_TAG @"favoritos"
 #define FAVOURITES_DID_CHANGE @"favouritesDidChange"
+#define AUTO_SAVE NO
+#define AUTO_SAVE_DELAY_IN_SECONDS 10

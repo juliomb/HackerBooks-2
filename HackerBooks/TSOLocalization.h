@@ -1,5 +1,11 @@
 #import "_TSOLocalization.h"
+@import CoreLocation;
 
 @interface TSOLocalization : _TSOLocalization {}
-// Custom logic goes here.
+
+
++(instancetype) locationWithCLLocation:(CLLocation *) location
+                          forAnotation:(TSOAnnotation *) anotation;
+
+
 @end

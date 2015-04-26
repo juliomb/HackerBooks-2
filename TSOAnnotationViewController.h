@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *creationDateView;
 @property (weak, nonatomic) IBOutlet UILabel *modificationDateView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)deletePhoto:(id)sender;

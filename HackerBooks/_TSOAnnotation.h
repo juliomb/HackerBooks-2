@@ -1,7 +1,7 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to TSOAnnotation.h instead.
 
-@import CoreData;
+#import <CoreData/CoreData.h>
 
 extern const struct TSOAnnotationAttributes {
 	__unsafe_unretained NSString *creationDate;

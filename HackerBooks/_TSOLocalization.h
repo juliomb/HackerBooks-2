@@ -1,7 +1,7 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to TSOLocalization.h instead.
 
-@import CoreData;
+#import <CoreData/CoreData.h>
 
 extern const struct TSOLocalizationAttributes {
 	__unsafe_unretained NSString *address;
@@ -10,7 +10,7 @@ extern const struct TSOLocalizationAttributes {
 } TSOLocalizationAttributes;
 
 extern const struct TSOLocalizationRelationships {
-	__unsafe_unretained NSString *annotation;
+	__unsafe_unretained NSString *annotations;
 } TSOLocalizationRelationships;
 
 @class TSOAnnotation;
@@ -44,17 +44,17 @@ extern const struct TSOLocalizationRelationships {
 
 //- (BOOL)validateLongitude:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSSet *annotation;
+@property (nonatomic, strong) NSSet *annotations;
 
-- (NSMutableSet*)annotationSet;
+- (NSMutableSet*)annotationsSet;
 
 @end
 
-@interface _TSOLocalization (AnnotationCoreDataGeneratedAccessors)
-- (void)addAnnotation:(NSSet*)value_;
-- (void)removeAnnotation:(NSSet*)value_;
-- (void)addAnnotationObject:(TSOAnnotation*)value_;
-- (void)removeAnnotationObject:(TSOAnnotation*)value_;
+@interface _TSOLocalization (AnnotationsCoreDataGeneratedAccessors)
+- (void)addAnnotations:(NSSet*)value_;
+- (void)removeAnnotations:(NSSet*)value_;
+- (void)addAnnotationsObject:(TSOAnnotation*)value_;
+- (void)removeAnnotationsObject:(TSOAnnotation*)value_;
 
 @end
 
@@ -75,7 +75,7 @@ extern const struct TSOLocalizationRelationships {
 - (double)primitiveLongitudeValue;
 - (void)setPrimitiveLongitudeValue:(double)value_;
 
-- (NSMutableSet*)primitiveAnnotation;
-- (void)setPrimitiveAnnotation:(NSMutableSet*)value;
+- (NSMutableSet*)primitiveAnnotations;
+- (void)setPrimitiveAnnotations:(NSMutableSet*)value;
 
 @end

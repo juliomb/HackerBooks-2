@@ -9,6 +9,7 @@
 #import "TSOAnnotationViewController.h"
 #import "TSOAnnotation.h"
 #import "TSOPhoto.h"
+#import "TSOLocalization.h"
 
 @interface TSOAnnotationViewController ()
 
@@ -40,6 +41,12 @@
     self.textView.text = self.model.text;
     if (self.model.photo.photoData) {
         self.imageView.image = [UIImage imageWithData:self.model.photo.photoData];
+    }
+    
+    if (self.model.hasLocation){
+        self.locationLabel.text = [self.locationLabel.text stringByAppendingString:
+                                   [NSString stringWithFormat:@"%@ %@", self.model.localization.latitude,
+                                    self.model.localization.longitude]];
     }
     
     // Asignamos delegados

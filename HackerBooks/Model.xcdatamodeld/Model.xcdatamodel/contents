@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Annotation" representedClassName="TSOAnnotation" syncable="YES">
         <attribute name="creationDate" attributeType="Date" syncable="YES"/>
         <attribute name="modificationDate" attributeType="Date" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="annotations" inverseEntity="Book" syncable="YES"/>
-        <relationship name="localization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Localization" inverseName="annotation" inverseEntity="Localization" syncable="YES"/>
+        <relationship name="localization" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Localization" inverseName="annotations" inverseEntity="Localization" syncable="YES"/>
         <relationship name="photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="annotation" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Book" representedClassName="TSOBook" syncable="YES">
@@ -18,9 +18,9 @@
     </entity>
     <entity name="Localization" representedClassName="TSOLocalization" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="annotation" toMany="YES" deletionRule="Nullify" destinationEntity="Annotation" inverseName="localization" inverseEntity="Annotation" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" indexed="YES" syncable="YES"/>
+        <relationship name="annotations" toMany="YES" deletionRule="Nullify" destinationEntity="Annotation" inverseName="localization" inverseEntity="Annotation" syncable="YES"/>
     </entity>
     <entity name="Pdf" representedClassName="TSOPdf" syncable="YES">
         <attribute name="pdfData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
@@ -38,9 +38,9 @@
         <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Annotation" positionX="90" positionY="-216" width="128" height="133"/>
+        <element name="Annotation" positionX="90" positionY="-216" width="128" height="135"/>
         <element name="Book" positionX="-342" positionY="-283" width="128" height="133"/>
-        <element name="Localization" positionX="-126" positionY="-9" width="128" height="103"/>
+        <element name="Localization" positionX="-126" positionY="-9" width="128" height="105"/>
         <element name="Pdf" positionX="-101" positionY="-316" width="128" height="88"/>
         <element name="Photo" positionX="-92" positionY="176" width="128" height="103"/>
         <element name="Tag" positionX="-344" positionY="-72" width="128" height="73"/>

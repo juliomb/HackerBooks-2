@@ -88,20 +88,9 @@
         [self loadBooksTable];
 
     }
-    
-    /*
-    // Detectamos el tipo de pantalla
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        
-        // Tipo tableta
-        [self configureForPadWithModel:library];
-        
-    }else{
-        
-        // Tipo teléfono
-        [self configureForPhoneWithModel:library];
-        
-    }*/
+
+    // Iniciamos el autoguardar
+    [self autoSave];
     
     
     
@@ -120,18 +109,14 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     
-    [self.stack saveWithErrorBlock:^(NSError *error) {
-        NSLog(@"Error al guardar!: %@", error);
-    }];
+    [self save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    [self.stack saveWithErrorBlock:^(NSError *error) {
-        NSLog(@"Error al guardar!: %@", error);
-    }];
+    [self save];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -146,69 +131,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-/*
--(TSOBook *) lastSelectedBookInModel:(TSOLibrary *) model{
-    
-    // Obtengo en NSUserDefaults
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    // Saco las coordenadas del último personaje
-    NSArray *coords = [userDefaults objectForKey:LAST_SELECTED_BOOK];
-    NSUInteger section = [[coords firstObject] integerValue];
-    NSUInteger position = [[coords lastObject] integerValue];
-    
-    // Obtengo el libro
-    NSString *tag = [[model tags] objectAtIndex:section];
-    TSOBook *book = [model bookForTag:tag atIndex:position];
-    
-    // Lo devuelvo
-    return book;
-    
-}
-
-
--(void) configureForPadWithModel:(TSOLibrary *) library{
-    
-    // Creamos los controladores
-    TSOLibraryTableViewController *libVC = [[TSOLibraryTableViewController alloc] initWithModel:library
-                                                                                          style:UITableViewStyleGrouped];
-    TSOBookViewController *bookVC = [[TSOBookViewController alloc] initWithModel:[self lastSelectedBookInModel:library]];
-    
-    // Creamos los navigation
-    UINavigationController *libNav = [[UINavigationController alloc] initWithRootViewController:libVC];
-    UINavigationController *bookNav = [[UINavigationController alloc] initWithRootViewController:bookVC];
-    
-    
-    // Creamos el combinador
-    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
-    splitVC.viewControllers = @[libNav, bookNav];
-    
-    // Asignamos los delegados
-    splitVC.delegate = bookVC;
-    libVC.delegate = bookVC;
-    
-    // lo hacemos root
-    self.window.rootViewController = splitVC;
-}
-
-
-
--(void) configureForPhoneWithModel:(TSOLibrary *) library{
-
-    // Creamos el controlador
-    TSOLibraryTableViewController *libVC = [[TSOLibraryTableViewController alloc] initWithModel:library
-                                                                                          style:UITableViewStyleGrouped];
-    // Creamos el navigation
-    UINavigationController *libNav = [[UINavigationController alloc] initWithRootViewController:libVC];
-    
-    // Asignamos los delegados
-    libVC.delegate = libVC;
-    
-    // Lo hacemos root
-    self.window.rootViewController = libNav;
-
-}
- */
 
 
 -(void) createTestData{
@@ -270,6 +192,28 @@
     
 }
 
+
+
+-(void)save{
+    
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        NSLog(@"Error al guardar %s \n\n %@", __func__, error);
+    }];
+}
+
+-(void)autoSave{
+    
+    if (AUTO_SAVE) {
+        NSLog(@"Autoguardando....");
+        
+        [self save];
+        [self performSelector:@selector(autoSave)
+                   withObject:nil
+                   afterDelay:AUTO_SAVE_DELAY_IN_SECONDS];
+        
+        
+    }
+}
 
 
 

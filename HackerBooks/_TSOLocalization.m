@@ -10,7 +10,7 @@ const struct TSOLocalizationAttributes TSOLocalizationAttributes = {
 };
 
 const struct TSOLocalizationRelationships TSOLocalizationRelationships = {
-	.annotation = @"annotation",
+	.annotations = @"annotations",
 };
 
 @implementation TSOLocalizationID
@@ -63,7 +63,7 @@ const struct TSOLocalizationRelationships TSOLocalizationRelationships = {
 }
 
 - (void)setLatitudeValue:(double)value_ {
-	[self setLatitude:@(value_)];
+	[self setLatitude:[NSNumber numberWithDouble:value_]];
 }
 
 - (double)primitiveLatitudeValue {
@@ -72,7 +72,7 @@ const struct TSOLocalizationRelationships TSOLocalizationRelationships = {
 }
 
 - (void)setPrimitiveLatitudeValue:(double)value_ {
-	[self setPrimitiveLatitude:@(value_)];
+	[self setPrimitiveLatitude:[NSNumber numberWithDouble:value_]];
 }
 
 @dynamic longitude;
@@ -83,7 +83,7 @@ const struct TSOLocalizationRelationships TSOLocalizationRelationships = {
 }
 
 - (void)setLongitudeValue:(double)value_ {
-	[self setLongitude:@(value_)];
+	[self setLongitude:[NSNumber numberWithDouble:value_]];
 }
 
 - (double)primitiveLongitudeValue {
@@ -92,17 +92,17 @@ const struct TSOLocalizationRelationships TSOLocalizationRelationships = {
 }
 
 - (void)setPrimitiveLongitudeValue:(double)value_ {
-	[self setPrimitiveLongitude:@(value_)];
+	[self setPrimitiveLongitude:[NSNumber numberWithDouble:value_]];
 }
 
-@dynamic annotation;
+@dynamic annotations;
 
-- (NSMutableSet*)annotationSet {
-	[self willAccessValueForKey:@"annotation"];
+- (NSMutableSet*)annotationsSet {
+	[self willAccessValueForKey:@"annotations"];
 
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"annotation"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"annotations"];
 
-	[self didAccessValueForKey:@"annotation"];
+	[self didAccessValueForKey:@"annotations"];
 	return result;
 }
 

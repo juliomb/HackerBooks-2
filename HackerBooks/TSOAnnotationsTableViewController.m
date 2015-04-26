@@ -35,15 +35,15 @@
 }
 
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
     UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                          target:self
                                                                          action:@selector(addNewAnnotation:)];
     
     self.navigationItem.rightBarButtonItem = add;
+    
 }
 
 

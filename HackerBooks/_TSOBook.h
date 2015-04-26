@@ -1,7 +1,7 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to TSOBook.h instead.
 
-@import CoreData;
+#import <CoreData/CoreData.h>
 
 extern const struct TSOBookAttributes {
 	__unsafe_unretained NSString *authors;
