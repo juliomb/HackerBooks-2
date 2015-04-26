@@ -105,16 +105,6 @@
     
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error
-{
-    NSLog(@"Error while getting core location : %@",[error localizedFailureReason]);
-    if ([error code] == kCLErrorDenied) {
-        NSLog(@"Acceso denegado");
-    }
-    [manager stopUpdatingLocation];
-}
-
 
 -(void) zapLocationManager{
     [self.locationManager stopUpdatingLocation];

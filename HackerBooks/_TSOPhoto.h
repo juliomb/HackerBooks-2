@@ -2,6 +2,7 @@
 // Make changes to TSOPhoto.h instead.
 
 #import <CoreData/CoreData.h>
+#import "TSOHackerBooksBaseClass.h"
 
 extern const struct TSOPhotoAttributes {
 	__unsafe_unretained NSString *photoData;
@@ -19,7 +20,7 @@ extern const struct TSOPhotoRelationships {
 @interface TSOPhotoID : NSManagedObjectID {}
 @end
 
-@interface _TSOPhoto : NSManagedObject {}
+@interface _TSOPhoto : TSOHackerBooksBaseClass {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;

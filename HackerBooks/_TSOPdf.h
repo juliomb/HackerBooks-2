@@ -2,6 +2,7 @@
 // Make changes to TSOPdf.h instead.
 
 #import <CoreData/CoreData.h>
+#import "TSOHackerBooksBaseClass.h"
 
 extern const struct TSOPdfAttributes {
 	__unsafe_unretained NSString *pdfData;
@@ -17,7 +18,7 @@ extern const struct TSOPdfRelationships {
 @interface TSOPdfID : NSManagedObjectID {}
 @end
 
-@interface _TSOPdf : NSManagedObject {}
+@interface _TSOPdf : TSOHackerBooksBaseClass {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;

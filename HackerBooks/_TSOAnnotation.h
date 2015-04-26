@@ -2,6 +2,7 @@
 // Make changes to TSOAnnotation.h instead.
 
 #import <CoreData/CoreData.h>
+#import "TSOHackerBooksBaseClass.h"
 
 extern const struct TSOAnnotationAttributes {
 	__unsafe_unretained NSString *creationDate;
@@ -22,7 +23,7 @@ extern const struct TSOAnnotationRelationships {
 @interface TSOAnnotationID : NSManagedObjectID {}
 @end
 
-@interface _TSOAnnotation : NSManagedObject {}
+@interface _TSOAnnotation : TSOHackerBooksBaseClass {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;

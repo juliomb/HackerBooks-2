@@ -2,6 +2,7 @@
 // Make changes to TSOLocalization.h instead.
 
 #import <CoreData/CoreData.h>
+#import "TSOHackerBooksBaseClass.h"
 
 extern const struct TSOLocalizationAttributes {
 	__unsafe_unretained NSString *address;
@@ -18,7 +19,7 @@ extern const struct TSOLocalizationRelationships {
 @interface TSOLocalizationID : NSManagedObjectID {}
 @end
 
-@interface _TSOLocalization : NSManagedObject {}
+@interface _TSOLocalization : TSOHackerBooksBaseClass {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;

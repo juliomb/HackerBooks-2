@@ -5,7 +5,7 @@
         <attribute name="modificationDate" attributeType="Date" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="annotations" inverseEntity="Book" syncable="YES"/>
-        <relationship name="localization" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Localization" inverseName="annotations" inverseEntity="Localization" syncable="YES"/>
+        <relationship name="localization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Localization" inverseName="annotations" inverseEntity="Localization" syncable="YES"/>
         <relationship name="photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="annotation" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Book" representedClassName="TSOBook" syncable="YES">

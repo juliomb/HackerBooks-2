@@ -2,6 +2,7 @@
 // Make changes to TSOTag.h instead.
 
 #import <CoreData/CoreData.h>
+#import "TSOHackerBooksBaseClass.h"
 
 extern const struct TSOTagAttributes {
 	__unsafe_unretained NSString *text;
@@ -16,7 +17,7 @@ extern const struct TSOTagRelationships {
 @interface TSOTagID : NSManagedObjectID {}
 @end
 
-@interface _TSOTag : NSManagedObject {}
+@interface _TSOTag : TSOHackerBooksBaseClass {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
